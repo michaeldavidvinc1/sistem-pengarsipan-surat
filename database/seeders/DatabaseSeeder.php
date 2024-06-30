@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Petugas;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -29,6 +30,27 @@ class DatabaseSeeder extends Seeder
             'username' => 'user',
             'password' => bcrypt('12345'),
             'role' => 'user',
+        ]);
+
+        $admin = User::where('username', 'admin')->first();
+        Petugas::create([
+            'nama_lengkap' => 'admin',
+            'email' => 'admin@gmail.com',
+            'user_id' => $admin->id,
+        ]);
+
+        $petugas = User::where('username', 'petugas')->first();
+        Petugas::create([
+            'nama_lengkap' => 'petugas',
+            'email' => 'petugas@gmail.com',
+            'user_id' => $petugas->id,
+        ]);
+
+        $user = User::where('username', 'user')->first();
+        Petugas::create([
+            'nama_lengkap' => 'user',
+            'email' => 'user@gmail.com',
+            'user_id' => $user->id,
         ]);
     }
 }

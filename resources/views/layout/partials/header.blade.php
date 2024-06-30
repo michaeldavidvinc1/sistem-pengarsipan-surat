@@ -17,21 +17,26 @@
 
             <li class="list-inline-item mb-0 ms-1">
                 <div class="dropdown dropdown-primary">
-                    <button type="button" class="btn btn-soft-light dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/client/05.jpg" class="avatar avatar-ex-small rounded" alt=""></button>
-                    <div class="dropdown-menu dd-menu dropdown-menu-end shadow border-0 mt-3 py-3" style="min-width: 200px;">
+                    <button type="button" class="btn btn-soft-light dropdown-toggle p-0" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><img src="assets/images/client/05.jpg"
+                            class="avatar avatar-ex-small rounded" alt=""></button>
+                    <div class="dropdown-menu dd-menu dropdown-menu-end shadow border-0 mt-3 py-3"
+                        style="min-width: 200px;">
                         <a class="dropdown-item d-flex align-items-center text-dark pb-3" href="profile.html">
-                            <img src="assets/images/client/05.jpg" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                            <img src="assets/images/client/05.jpg"
+                                class="avatar avatar-md-sm rounded-circle border shadow" alt="">
                             <div class="flex-1 ms-2">
-                                <span class="d-block">Cristina Julia</span>
-                                <small class="text-muted">UI / UX Designer</small>
+                                <span class="d-block">{{ Auth::user()->petugas->nama_lengkap }}</span>
+                                <small class="text-muted">{{ Auth::user()->role }}</small>
                             </div>
                         </a>
-                        <a class="dropdown-item text-dark" href="index.html"><span class="mb-0 d-inline-block me-1"><i class="ti ti-home"></i></span> Dashboard</a>
-                        <a class="dropdown-item text-dark" href="profile.html"><span class="mb-0 d-inline-block me-1"><i class="ti ti-settings"></i></span> Profile</a>
-                        <a class="dropdown-item text-dark" href="email.html"><span class="mb-0 d-inline-block me-1"><i class="ti ti-mail"></i></span> Email</a>
+                        <a class="dropdown-item text-dark" href="profile.html"><span class="mb-0 d-inline-block me-1"><i
+                                    class="ti ti-settings"></i></span> Profile</a>
+                        <a class="dropdown-item text-dark" href="email.html"><span class="mb-0 d-inline-block me-1"><i
+                                    class="ti ti-mail"></i></span> Email</a>
                         <div class="dropdown-divider border-top"></div>
-                        <a class="dropdown-item text-dark" href="lock-screen.html"><span class="mb-0 d-inline-block me-1"><i class="ti ti-lock"></i></span> Lockscreen</a>
-                        <a class="dropdown-item text-dark" href="login.html"><span class="mb-0 d-inline-block me-1"><i class="ti ti-logout"></i></span> Logout</a>
+                        <a class="dropdown-item text-dark" href="login.html"><span class="mb-0 d-inline-block me-1"><i
+                                    class="ti ti-logout"></i></span> Logout</a>
                     </div>
                 </div>
             </li>
