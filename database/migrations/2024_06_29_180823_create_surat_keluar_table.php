@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('penerima');
             $table->string('lokasi_sk');
             $table->string('berkas_sk');
-            $table->foreignIdFor(Petugas::class, 'yang_menandatangani');
+            $table->string('yang_menandatangani');
             $table->string('keterangan');
             $table->timestamps();
         });

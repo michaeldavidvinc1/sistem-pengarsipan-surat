@@ -94,11 +94,15 @@
                             name: 'lokasi_sk'
                         },
                         {
-                            data: 'nama_lengkap',
+                            data: 'yang_menandatangani',
                             name: 'yang_menandatangani'
                         },
                         {
-                            data: 'berkas_sk',
+                            data: function(data) {
+                                let file = data.berkas_sk;
+                                let url = '/storage/' + file;
+                                return '<a href="' + url + '" download>Download</a>';
+                            },
                             name: 'berkas_sk'
                         },
                         {

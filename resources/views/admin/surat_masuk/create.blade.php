@@ -126,8 +126,8 @@
                                             <select class="form-select form-control" name="status_disposisi"
                                                 aria-label="Default select example">
                                                 <option selected>-- Status Disposisi --</option>
-                                                <option value="enable">Enable</option>
-                                                <option value="disable">Disable</option>
+                                                <option value="sudah">Sudah</option>
+                                                <option value="belum">Belum</option>
                                             </select>
                                             @error('status_disposisi')
                                                 <div class="invalid-feedback">

@@ -25,10 +25,4 @@ class Petugas extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function suratKeluar(){
-        return $this->hasMany(SuratKeluar::class);
-    }
-
-
-
 }

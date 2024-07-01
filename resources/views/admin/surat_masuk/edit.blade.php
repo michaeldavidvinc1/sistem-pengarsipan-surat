@@ -130,10 +130,10 @@
                                             <select class="form-select form-control" name="status_disposisi"
                                                 aria-label="Default select example">
                                                 <option selected>-- Status Disposisi --</option>
-                                                <option @if ($data->status_disposisi == 'enable') selected @endif value="enable">
-                                                    Enable</option>
-                                                <option @if ($data->status_disposisi == 'disable') selected @endif value="disable">
-                                                    Disable</option>
+                                                <option @if ($data->status_disposisi == 'sudah') selected @endif value="sudah">
+                                                    Sudah</option>
+                                                <option @if ($data->status_disposisi == 'belum') selected @endif value="belum">
+                                                    Belum</option>
                                             </select>
                                             @error('status_disposisi')
                                                 <div class="invalid-feedback">

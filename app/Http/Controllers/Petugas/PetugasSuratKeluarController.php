@@ -15,10 +15,7 @@ class PetugasSuratKeluarController extends Controller
 
         if ($request->ajax()) {
 
-            $query = DB::table('surat_keluar')
-                ->join('petugas', 'surat_keluar.yang_menandatangani', '=', 'petugas.id')
-                ->select('surat_keluar.*', 'petugas.nama_lengkap')
-                ->latest();
+            $query = DB::table('surat_keluar')->latest();
             
                 if ($request->filled('min_date') && $request->filled('max_date')) {
                     $query->whereBetween('surat_keluar.tgl_dikeluarkan', [$request->min_date, $request->max_date]);

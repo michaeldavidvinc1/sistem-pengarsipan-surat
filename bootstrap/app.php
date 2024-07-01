@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\IsAuth;
 use App\Http\Middleware\isRole;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'role' => isRole::class,
+            'isAuth' => IsAuth::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

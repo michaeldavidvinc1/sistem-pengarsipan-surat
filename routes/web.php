@@ -123,6 +123,6 @@ Route::prefix('user')->middleware('role:user')->group(function(){
     Route::delete('surat_keluar', [UserSuratKeluarController::class, 'destroy'])->name('user.suratKeluar.destroy');
 });
 
-Route::get('', [AuthController::class, 'login_page'])->name('login.page')->middleware('guest');
+Route::get('', [AuthController::class, 'login_page'])->name('login.page')->middleware('isAuth');
 Route::post('login', [AuthController::class, 'login'])->name('login.store')->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

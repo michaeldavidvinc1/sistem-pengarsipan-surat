@@ -48,9 +48,9 @@
                     <div class="card form-signin p-4 rounded shadow">
                         <form action="{{ route('login.store') }}" method="POST">
                             @csrf
-                            <a href="index.html"><img src="assets/images/logo-icon.png"
+                            <a href="index.html"><img src="assets/logo.png"
                                     class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
-                            <h5 class="mb-3 text-center">E-Arsip UJI COBA Babussalam</h5>
+                            <h5 class="mb-3 text-center">E-Arsip Babussalam</h5>
 
                             <div class="form-floating mb-2">
                                 <input type="text" name="username" class="form-control" id="floatingInput"

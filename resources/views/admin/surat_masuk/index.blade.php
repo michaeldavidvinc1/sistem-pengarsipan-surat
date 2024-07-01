@@ -99,7 +99,11 @@
                             name: 'keterangan'
                         },
                         {
-                            data: 'berkas_sm',
+                            data: function(data) {
+                                let file = data.berkas_sm;
+                                let url = '/storage/' + file;
+                                return '<a href="' + url + '" download>Download</a>';
+                            },
                             name: 'berkas_sm'
                         },
                         {

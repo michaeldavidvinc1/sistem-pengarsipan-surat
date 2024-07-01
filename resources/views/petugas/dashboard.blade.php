@@ -67,7 +67,9 @@
 
         <div class="row">
             <div class="col-12 mt-4">
-                <div class="card" style="width: 100%; height: 70vh;"></div>
+                <div class="card" style="width: 100%;">
+                    <img class="img-fluid" src="assets/hero.jpg" alt="">
+                </div>
             </div>
         </div><!--end row-->
     </div>

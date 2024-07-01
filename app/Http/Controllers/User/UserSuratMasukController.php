@@ -22,11 +22,11 @@ class UserSuratMasukController extends Controller
     
             return datatables()::of($query)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $btnDisposisi = '<a href="'.route('user.suratMasuk.edit', $row->id).'" class="disposisi btn btn-warning btn-sm">Disposisi</a>';
-                    $btnEdit  = '<a href="'.route('user.suratMasuk.edit', $row->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
-                    return '<div class="d-flex gap-2">'.$btnDisposisi.$btnEdit.'</div>';
-                })
+                // ->addColumn('action', function ($row) {
+                //     $btnDisposisi = '<a href="'.route('user.suratMasuk.edit', $row->id).'" class="disposisi btn btn-warning btn-sm">Disposisi</a>';
+                //     $btnEdit  = '<a href="'.route('user.suratMasuk.edit', $row->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
+                //     return '<div class="d-flex gap-2">'.$btnDisposisi.$btnEdit.'</div>';
+                // })
                 ->make(true);
         }
         return view('user.surat_masuk.index');

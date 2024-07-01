@@ -11,8 +11,8 @@
                 <div class="card rounded shadow">
                     <div class="p-4">
                         <div class="mb-3">
-                            <a href="{{ route('user.suratMasuk.create') }}" class="btn btn-primary btn-sm">Input Data</a>
-                            <button class="btn btn-danger btn-sm" id="deleteButton">Hapus</button>
+                            {{-- <a href="{{ route('user.suratMasuk.create') }}" class="btn btn-primary btn-sm">Input Data</a>
+                            <button class="btn btn-danger btn-sm" id="deleteButton">Hapus</button> --}}
                             <button class="btn btn-secondary btn-sm" id="reset">Reset</button>
                         </div>
                         <div class="table-responsive shadow rounded-bottom p-2">
@@ -32,7 +32,6 @@
                                         <th>Keterangan</th>
                                         <th>Berkas</th>
                                         <th>Disposisi</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,43 +98,43 @@
                             name: 'keterangan'
                         },
                         {
-                            data: 'berkas_sm',
+                            data: function(data) {
+                                let file = data.berkas_sm;
+                                let url = '/storage/' + file;
+                                return '<a href="' + url + '" download>Download</a>';
+                            },
                             name: 'berkas_sm'
                         },
                         {
                             data: 'status_disposisi',
                             name: 'status_disposisi'
                         },
-                        {
-                            data: 'action',
-                            name: 'action'
-                        },
                     ],
                 });
-                $("#deleteButton").on("click", function(e) {
-                    let foreachData = [];
-                    let selectedRowsData = table.rows('.selected').data();
-                    selectedRowsData.each(function(rowData) {
-                        foreachData.push(rowData.id);
-                    });
-                    let token = $("meta[name='csrf-token']").attr("content");
-                    $.ajax({
-                        url: "{{ route('user.suratMasuk.destroy') }}",
-                        type: 'DELETE',
-                        data: {
-                            ids: foreachData.join(","),
-                            "_token": token
-                        },
-                        success: function(response) {
-                            toastr.success('Delete Surat Masuk Successfully');
-                            table.ajax.reload();
-                        },
-                        error: function(err) {
-                            console.error('Error:', err);
-                        }
-                    });
+                // $("#deleteButton").on("click", function(e) {
+                //     let foreachData = [];
+                //     let selectedRowsData = table.rows('.selected').data();
+                //     selectedRowsData.each(function(rowData) {
+                //         foreachData.push(rowData.id);
+                //     });
+                //     let token = $("meta[name='csrf-token']").attr("content");
+                //     $.ajax({
+                //         url: "{{ route('user.suratMasuk.destroy') }}",
+                //         type: 'DELETE',
+                //         data: {
+                //             ids: foreachData.join(","),
+                //             "_token": token
+                //         },
+                //         success: function(response) {
+                //             toastr.success('Delete Surat Masuk Successfully');
+                //             table.ajax.reload();
+                //         },
+                //         error: function(err) {
+                //             console.error('Error:', err);
+                //         }
+                //     });
 
-                });
+                // });
                 $('#reset').click(function() {
                     $('#min-date').val("");
                     $('#max-date').val("");

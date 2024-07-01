@@ -21,8 +21,4 @@ class SuratKeluar extends Model
         'yang_menandatangani',
         'keterangan',
     ];
-
-    public function petugas(){
-        return $this->belongsTo(Petugas::class);
-    }
 }

@@ -123,15 +123,10 @@
                                     <div class="mb-3">
                                         <label class="form-label">Yang Menandatangani</label>
                                         <div class="form-icon position-relative">
-                                            <select class="form-select form-control" name="yang_menandatangani"
-                                                aria-label="Default select example">
-                                                <option selected>-- Yang Menandatangani --</option>
-                                                @foreach ($petugas as $item)
-                                                    <option @if ($data->yang_menandatangani == $item->id) selected @endif
-                                                        value="{{ $item->id }}">{{ $item->nama_lengkap }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('status_disposisi')
+                                            <input type="text" name="yang_menandatangani" id="yang_menandatangani"
+                                                value="{{ $data->yang_menandatangani }}" class="form-control"
+                                                placeholder="Yang Menandatangani..." required>
+                                            @error('yang_menandatangani')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
