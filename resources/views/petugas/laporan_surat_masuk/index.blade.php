@@ -99,7 +99,7 @@
                     },
                     autoWidth: false,
                     ajax: {
-                        url: "{{ route('petugasUser.index') }}",
+                        url: "{{ route('petugas.suratMasuk.index') }}",
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();

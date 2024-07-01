@@ -3,13 +3,21 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\DisposisiController;
 use App\Http\Controllers\Admin\JenisSuratController;
+use App\Http\Controllers\Admin\LaporanSuratKeluarController;
 use App\Http\Controllers\Admin\LaporanSuratMasukController;
 use App\Http\Controllers\Admin\PetugasController;
 use App\Http\Controllers\Admin\SuratKeluarController;
 use App\Http\Controllers\Admin\SuratMasukController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Petugas\PetugasDashboardController;
+use App\Http\Controllers\Petugas\PetugasDisposisiController;
+use App\Http\Controllers\Petugas\PetugasLaporanSuratKeluarController;
+use App\Http\Controllers\Petugas\PetugasLaporanSuratMasukController;
+use App\Http\Controllers\Petugas\PetugasSuratKeluarController;
+use App\Http\Controllers\Petugas\PetugasSuratMasukController;
 use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\User\UserSuratKeluarController;
+use App\Http\Controllers\User\UserSuratMasukController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +52,7 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     Route::get('disposisi/create', [DisposisiController::class, 'create'])->name('disposisi.create');
     Route::post('disposisi/create', [DisposisiController::class, 'store'])->name('disposisi.store');
     Route::delete('disposisi', [DisposisiController::class, 'destroy'])->name('disposisi.destroy');
+    Route::get('disposisi-pdf/{id}', [DisposisiController::class, 'generate_pdf'])->name('disposisi.generatePdf');
 
     // Route Petugas
     Route::get('user', [PetugasController::class, 'index'])->name('petugasUser.index');
@@ -56,16 +65,64 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-masuk', [LaporanSuratMasukController::class, 'index'])->name('laporanSuratMasuk.index');
 
+    // Route Laporan Surat Masuk
+    Route::get('laporan-surat-keluar', [LaporanSuratKeluarController::class, 'index'])->name('laporanSuratKeluar.index');
+
 
 });
 
 Route::prefix('petugas')->middleware('role:petugas')->group(function(){
     Route::get('/', [PetugasDashboardController::class, 'index'])->name('petugas.dashboard');
+
+    // Route Surat Masuk
+    Route::get('surat_masuk', [PetugasSuratMasukController::class, 'index'])->name('petugas.suratMasuk.index');
+    Route::get('surat_masuk/create', [PetugasSuratMasukController::class, 'create'])->name('petugas.suratMasuk.create');
+    Route::post('surat_masuk/create', [PetugasSuratMasukController::class, 'store'])->name('petugas.suratMasuk.store');
+    Route::get('surat_masuk/{id}', [PetugasSuratMasukController::class, 'edit'])->name('petugas.suratMasuk.edit');
+    Route::put('surat_masuk/{id}', [PetugasSuratMasukController::class, 'update'])->name('petugas.suratMasuk.update');
+    Route::delete('surat_masuk', [PetugasSuratMasukController::class, 'destroy'])->name('petugas.suratMasuk.destroy');
+
+    // Route Surat Keluar
+    Route::get('surat_keluar', [PetugasSuratKeluarController::class, 'index'])->name('petugas.suratKeluar.index');
+    Route::get('surat_keluar/create', [PetugasSuratKeluarController::class, 'create'])->name('petugas.suratKeluar.create');
+    Route::post('surat_keluar/create', [PetugasSuratKeluarController::class, 'store'])->name('petugas.suratKeluar.store');
+    Route::get('surat_keluar/{id}', [PetugasSuratKeluarController::class, 'edit'])->name('petugas.suratKeluar.edit');
+    Route::put('surat_keluar/{id}', [PetugasSuratKeluarController::class, 'update'])->name('petugas.suratKeluar.update');
+    Route::delete('surat_keluar', [PetugasSuratKeluarController::class, 'destroy'])->name('petugas.suratKeluar.destroy');
+
+    // Route Disposisi
+    Route::get('disposisi', [PetugasDisposisiController::class, 'index'])->name('petugas.disposisi.index');
+    Route::get('disposisi/create', [PetugasDisposisiController::class, 'create'])->name('petugas.disposisi.create');
+    Route::post('disposisi/create', [PetugasDisposisiController::class, 'store'])->name('petugas.disposisi.store');
+    Route::delete('disposisi', [PetugasDisposisiController::class, 'destroy'])->name('petugas.disposisi.destroy');
+
+    // Route Laporan Surat Masuk
+    Route::get('laporan-surat-masuk', [PetugasLaporanSuratMasukController::class, 'index'])->name('petugas.laporanSuratMasuk.index');
+
+    // Route Laporan Surat Masuk
+    Route::get('laporan-surat-keluar', [PetugasLaporanSuratKeluarController::class, 'index'])->name('petugas.laporanSuratKeluar.index');
 });
 
 Route::prefix('user')->middleware('role:user')->group(function(){
-    Route::get('/', [UserDashboardController::class, 'index'])->name('suer.dashboard');
+    Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
+
+    // Route Surat Masuk
+    Route::get('surat_masuk', [UserSuratMasukController::class, 'index'])->name('user.suratMasuk.index');
+    Route::get('surat_masuk/create', [UserSuratMasukController::class, 'create'])->name('user.suratMasuk.create');
+    Route::post('surat_masuk/create', [UserSuratMasukController::class, 'store'])->name('user.suratMasuk.store');
+    Route::get('surat_masuk/{id}', [UserSuratMasukController::class, 'edit'])->name('user.suratMasuk.edit');
+    Route::put('surat_masuk/{id}', [UserSuratMasukController::class, 'update'])->name('user.suratMasuk.update');
+    Route::delete('surat_masuk', [UserSuratMasukController::class, 'destroy'])->name('user.suratMasuk.destroy');
+
+    // Route Surat Keluar
+    Route::get('surat_keluar', [UserSuratKeluarController::class, 'index'])->name('user.suratKeluar.index');
+    Route::get('surat_keluar/create', [UserSuratKeluarController::class, 'create'])->name('user.suratKeluar.create');
+    Route::post('surat_keluar/create', [UserSuratKeluarController::class, 'store'])->name('user.suratKeluar.store');
+    Route::get('surat_keluar/{id}', [UserSuratKeluarController::class, 'edit'])->name('user.suratKeluar.edit');
+    Route::put('surat_keluar/{id}', [UserSuratKeluarController::class, 'update'])->name('user.suratKeluar.update');
+    Route::delete('surat_keluar', [UserSuratKeluarController::class, 'destroy'])->name('user.suratKeluar.destroy');
 });
 
 Route::get('', [AuthController::class, 'login_page'])->name('login.page')->middleware('guest');
 Route::post('login', [AuthController::class, 'login'])->name('login.store')->middleware('guest');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

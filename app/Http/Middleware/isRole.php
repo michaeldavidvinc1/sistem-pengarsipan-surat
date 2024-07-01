@@ -19,6 +19,17 @@ class isRole
         if(Auth::check() && Auth::user()->role == $role ){
             return $next($request);
         }
-        abort(403);
+        if(Auth::check() && Auth::user()->role == 'admin'){
+            return redirect()->route("admin.dashboard");
+        } else if(Auth::check() && Auth::user()->role == 'petugas'){
+            return redirect()->route("petugas.dashboard");
+        } else if(Auth::check() && Auth::user()->role == 'user'){
+            return redirect()->route("user.dashboard");
+        }
+
+        if(!Auth::check()){
+            return redirect()->route('login.page');
+        }
+        // abort(403);
     }
 }

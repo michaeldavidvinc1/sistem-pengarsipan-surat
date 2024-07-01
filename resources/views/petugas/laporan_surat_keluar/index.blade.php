@@ -21,15 +21,6 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <h6>Berdasarkan status disposisi</h6>
-                            <div class="col-3">
-                                <select class="form-select form-control" aria-label="Default select example">
-                                    <option selected>-- Status Disposisi --</option>
-                                    <option value="1">Semua</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mt-3">
                             <h6>Berdasarkan Rentang Tanggal Surat</h6>
                             <div class="row">
                                 <div class="col-2">
@@ -61,14 +52,13 @@
                                     <tr>
                                         <th></th>
                                         <th>No Surat</th>
-                                        <th>Tanggal Surat</th>
+                                        <th>Tanggal Dikeluarkan</th>
                                         <th>Perihal</th>
-                                        <th>Jenis Surat</th>
-                                        <th>Asal Surat</th>
-                                        <th>Keterangan</th>
+                                        <th>Kepada</th>
                                         <th>Lokasi Berkas</th>
-                                        <th>Status</th>
-                                        <th>Status Disposisi</th>
+                                        <th>Yang Menandatangani</th>
+                                        <th>Berkas</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -99,7 +89,7 @@
                     },
                     autoWidth: false,
                     ajax: {
-                        url: "{{ route('petugasUser.index') }}",
+                        url: "{{ route('petugas.suratMasuk.index') }}",
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();

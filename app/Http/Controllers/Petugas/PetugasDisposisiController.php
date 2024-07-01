@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Petugas;
 
 use App\Http\Controllers\Controller;
 use App\Models\Disposisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
 
-class DisposisiController extends Controller
+class PetugasDisposisiController extends Controller
 {
     public function index(Request $request){
 
@@ -26,16 +25,16 @@ class DisposisiController extends Controller
             return datatables()::of($suratKeluar)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btnEdit  = '<a href="'.route('disposisi.generatePdf', $row->id).'" target="_blank" class="print btn btn-primary btn-sm">Print</a>';
+                    $btnEdit  = '<a href="'.route('suratKeluar.index', $row->id).'" class="print btn btn-primary btn-sm">Print</a>';
                     return '<div class="d-flex gap-2">'.$btnEdit.'</div>';
                 })
                 ->make(true);
         }
-        return view('admin.disposisi.index');
+        return view('petugas.disposisi.index');
     }
 
     public function create(){
-        return view('admin.disposisi.create');
+        return view('petugas.disposisi.create');
     }
 
     public function store(Request $request){
@@ -58,7 +57,7 @@ class DisposisiController extends Controller
         ]);
 
         toastr()->success('Create Disposisi Surat Masuk Successfully');
-        return redirect()->route('disposisi.index');
+        return redirect()->route('petugas.disposisi.index');
     }
 
     public function destroy(Request $request)
@@ -69,14 +68,5 @@ class DisposisiController extends Controller
         Disposisi::whereIn('id', explode(",", $ids))->delete();
 
         return response()->json(['success' => "Records deleted successfully."]);
-    }
-
-    public function generate_pdf($id){
-
-        $disposisi = Disposisi::find($id);
-        $data = ['disposisi' => $disposisi];
-        $pdf = PDF::loadView('print.cetak-disposisi', $data)->setPaper('a4', 'landscape');
-
-        return $pdf->stream('sample.pdf');
     }
 }
