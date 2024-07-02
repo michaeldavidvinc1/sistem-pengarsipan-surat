@@ -44,13 +44,14 @@ class PetugasController extends Controller
             'password' => 'required',
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
+            'jabatan' => 'required',
             'role' => 'required',
             'tgl_lahir' => 'required',
         ]);
 
         $user = User::create([
             'username' => $request->username,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
             'role' => $request->role,
         ]);
 
@@ -61,6 +62,7 @@ class PetugasController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'jenis_kelamin' => $request->jenis_kelamin,
             'telp' => $request->telp,
+            'jabatan' => $request->jabatan,
             'user_id' => $user->id,
         ]);
 
@@ -82,6 +84,7 @@ class PetugasController extends Controller
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
             'role' => 'required',
+            'jabatan' => 'required',
             'tgl_lahir' => 'required',
         ]);
 
@@ -92,6 +95,7 @@ class PetugasController extends Controller
         $petugas->alamat = $request->alamat;
         $petugas->jenis_kelamin = $request->jenis_kelamin;
         $petugas->tgl_lahir = $request->tgl_lahir;
+        $petugas->jabatan = $request->jabatan;
 
         $user = User::findOrFail($petugas->user_id);
         $user->username = $request->username;

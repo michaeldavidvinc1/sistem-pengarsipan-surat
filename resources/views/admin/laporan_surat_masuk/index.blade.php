@@ -66,8 +66,7 @@
                                         <th>Jenis Surat</th>
                                         <th>Asal Surat</th>
                                         <th>Keterangan</th>
-                                        <th>Lokasi Berkas</th>
-                                        <th>Status</th>
+                                        <th>Berkas</th>
                                         <th>Status Disposisi</th>
                                         <th>Aksi</th>
                                     </tr>

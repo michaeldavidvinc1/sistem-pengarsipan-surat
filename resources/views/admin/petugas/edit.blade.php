@@ -98,7 +98,7 @@
                                                 <option selected>-- Jenis Kelamin --</option>
                                                 <option @if ($data->jenis_kelamin == 'L') selected @endif value="L">
                                                     Laki - Laki</option>
-                                                <option @if ($data->jenis_kelamin == 'p') selected @endif value="P">
+                                                <option @if ($data->jenis_kelamin == 'P') selected @endif value="P">
                                                     Perempuan</option>
                                             </select>
                                             @error('jenis_kelamin')
@@ -124,6 +124,30 @@
                                                     User</option>
                                             </select>
                                             @error('role')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Jabatan</label>
+                                        <div class="form-icon position-relative">
+                                            <select class="form-select form-control" name="jabatan"
+                                                aria-label="Default select example">
+                                                <option selected>-- Jabatan --</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_yayasan') selected @endif
+                                                    value="staff_tu_yayasan">Staff TU Yayasan</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_sma') selected @endif
+                                                    value="staff_tu_sma">Staff TU SMA</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_smp') selected @endif
+                                                    value="staff_tu_smp">Staff TU SMP</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_sd_tk') selected @endif
+                                                    value="staff_tu_sd_tk">Staff TU SD Sampai TK</option>
+                                            </select>
+                                            @error('jabatan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

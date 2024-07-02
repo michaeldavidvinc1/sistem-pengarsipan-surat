@@ -27,6 +27,7 @@
                                         <th>Email</th>
                                         <th>Telp</th>
                                         <th>Role</th>
+                                        <th>Jabatan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -81,7 +82,7 @@
                             data: function(data) {
                                 if (data.jenis_kelamin == "L") {
                                     return 'Laki - Laki';
-                                } else if (data.jenis_kelamin == "L") {
+                                } else if (data.jenis_kelamin == "P") {
                                     return 'Perempuan';
                                 } else {
                                     return ''
@@ -108,6 +109,22 @@
                         {
                             data: 'role',
                             name: 'role'
+                        },
+                        {
+                            data: function(data) {
+                                if (data.jabatan == "staff_tu_yayasan") {
+                                    return 'Staff TU Yayasan';
+                                } else if (data.jabatan == "staff_tu_sma") {
+                                    return 'Staff TU SMA';
+                                } else if (data.jabatan == "staff_tu_smp") {
+                                    return 'Staff TU SMP';
+                                } else if (data.jabatan == "staff_tu_sd_tk") {
+                                    return 'Staff TU SD Sampai TK'
+                                } else {
+                                    return ''
+                                }
+                            },
+                            name: 'jabatan'
                         },
                         {
                             data: 'action',

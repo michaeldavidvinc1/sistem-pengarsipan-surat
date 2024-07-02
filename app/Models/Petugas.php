@@ -18,6 +18,7 @@ class Petugas extends Model
         'tgl_lahir',
         'jenis_kelamin',
         'telp',
+        'jabatan',
         'user_id',
     ];
 

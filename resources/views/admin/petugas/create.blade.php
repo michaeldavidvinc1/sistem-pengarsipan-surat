@@ -139,7 +139,27 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">TanggalLahir</label>
+                                        <label class="form-label">Jabatan</label>
+                                        <div class="form-icon position-relative">
+                                            <select class="form-select form-control" name="jabatan"
+                                                aria-label="Default select example">
+                                                <option selected>-- Jabatan --</option>
+                                                <option value="staff_tu_yayasan">Staff TU Yayasan</option>
+                                                <option value="staff_tu_sma">Staff TU SMA</option>
+                                                <option value="staff_tu_smp">Staff TU SMP</option>
+                                                <option value="staff_tu_sd_tk">Staff TU SD Sampai TK</option>
+                                            </select>
+                                            @error('role')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Tanggal Lahir</label>
                                         <div class="form-icon position-relative">
                                             <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control"
                                                 required>
