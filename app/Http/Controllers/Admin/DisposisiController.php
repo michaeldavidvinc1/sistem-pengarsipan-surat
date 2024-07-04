@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Disposisi;
+use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
@@ -15,10 +16,12 @@ class DisposisiController extends Controller
         if ($request->ajax()) {
 
             $query = DB::table('disposisi')
+                ->join('surat_masuk', 'disposisi.surat_masuk_id', '=', 'surat_masuk.id')
+                ->select('disposisi.*', 'surat_masuk.perihal', 'surat_masuk.no_sm')
                 ->latest();
             
                 if ($request->filled('min_date') && $request->filled('max_date')) {
-                    $query->whereBetween('tgl_disposisi', [$request->min_date, $request->max_date]);
+                    $query->whereBetween('surat_masuk.tgl_disposisi', [$request->min_date, $request->max_date]);
                 }
                 $suratKeluar = $query->get();
 
@@ -35,24 +38,25 @@ class DisposisiController extends Controller
     }
 
     public function create(){
-        return view('admin.disposisi.create');
+        $surat_masuk = SuratMasuk::all();
+        return view('admin.disposisi.create', compact('surat_masuk'));
     }
 
     public function store(Request $request){
         $request->validate([
-            'no_sm' => 'required',
+            'surat_masuk_id' => 'required',
             'tgl_disposisi' => 'required',
             'keterangan' => 'required',
-            'tgl_surat' => 'required',
+            'sifat' => 'required',
             'asal_surat' => 'required',
             'penerima_disposisi' => 'required',
         ]);
 
         Disposisi::create([
-            'no_sm' => $request->no_sm,
+            'surat_masuk_id' => $request->surat_masuk_id,
             'tgl_disposisi' => $request->tgl_disposisi,
             'keterangan' => $request->keterangan,
-            'tgl_surat' => $request->tgl_surat,
+            'sifat' => $request->sifat,
             'asal_surat' => $request->asal_surat,
             'penerima_disposisi' => $request->penerima_disposisi,
         ]);

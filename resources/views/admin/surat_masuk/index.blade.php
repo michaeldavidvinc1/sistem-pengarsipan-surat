@@ -100,9 +100,10 @@
                         },
                         {
                             data: function(data) {
-                                let file = data.berkas_sm;
-                                let url = '/storage/' + file;
-                                return '<a href="' + url + '" download>Download</a>';
+                                let file = data.id;
+                                let url = "{{ route('suratMasuk.preview', ':file') }}".replace(':file',
+                                    file);
+                                return '<a href="' + url + '" target="_blank">Download</a>';
                             },
                             name: 'berkas_sm'
                         },

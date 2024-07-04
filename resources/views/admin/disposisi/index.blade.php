@@ -25,10 +25,11 @@
                                     <tr>
                                         <th></th>
                                         <th>No Surat</th>
-                                        <th>Tanggal Surat</th>
                                         <th>Tanggal Diposisi</th>
+                                        <th>Perihal</th>
                                         <th>Dari</th>
                                         <th>Kepada</th>
+                                        <th>Sifat</th>
                                         <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -74,11 +75,11 @@
                         },
                         {
                             data: 'no_sm',
-                            name: 'no_sm'
+                            name: 'surat_masuk_id'
                         },
                         {
-                            data: 'tgl_surat',
-                            name: 'tgl_surat'
+                            data: 'perihal',
+                            name: 'perihal'
                         },
                         {
                             data: 'tgl_disposisi',
@@ -91,6 +92,10 @@
                         {
                             data: 'penerima_disposisi',
                             name: 'penerima_disposisi'
+                        },
+                        {
+                            data: 'sifat',
+                            name: 'sifat'
                         },
                         {
                             data: 'keterangan',

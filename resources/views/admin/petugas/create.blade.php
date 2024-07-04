@@ -147,7 +147,8 @@
                                                 <option value="staff_tu_yayasan">Staff TU Yayasan</option>
                                                 <option value="staff_tu_sma">Staff TU SMA</option>
                                                 <option value="staff_tu_smp">Staff TU SMP</option>
-                                                <option value="staff_tu_sd_tk">Staff TU SD Sampai TK</option>
+                                                <option value="staff_tu_sd">Staff TU SD </option>
+                                                <option value="staff_tu_tk">Staff TU TK</option>
                                             </select>
                                             @error('role')
                                                 <div class="invalid-feedback">

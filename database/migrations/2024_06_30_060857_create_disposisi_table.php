@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SuratMasuk;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('disposisi', function (Blueprint $table) {
             $table->id();
-            $table->string('no_sm');
+            $table->foreignIdFor(SuratMasuk::class, 'surat_masuk_id');
             $table->date('tgl_disposisi');
             $table->string('keterangan');
-            $table->date('tgl_surat');
             $table->string('asal_surat');
+            $table->string('sifat');
             $table->string('penerima_disposisi');
             $table->timestamps();
         });

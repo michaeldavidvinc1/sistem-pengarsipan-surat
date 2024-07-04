@@ -23,9 +23,11 @@
                         <div class="mt-3">
                             <h6>Berdasarkan status disposisi</h6>
                             <div class="col-3">
-                                <select class="form-select form-control" aria-label="Default select example">
-                                    <option selected>-- Status Disposisi --</option>
-                                    <option value="1">Semua</option>
+                                <select class="form-select form-control" id="status_disposisi"
+                                    aria-label="Default select example">
+                                    <option value="" selected>-- Status Disposisi --</option>
+                                    <option value="sudah">Sudah</option>
+                                    <option value="belum">Belum</option>
                                 </select>
                             </div>
                         </div>
@@ -35,14 +37,14 @@
                                 <div class="col-2">
                                     <div class="mb-3">
                                         <div class="form-icon position-relative">
-                                            <input name="name" id="name" type="date" class="form-control">
+                                            <input id="min-date" type="date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="mb-3">
                                         <div class="form-icon position-relative">
-                                            <input name="name" id="name" type="date" class="form-control">
+                                            <input id="max-date" type="date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +70,6 @@
                                         <th>Keterangan</th>
                                         <th>Berkas</th>
                                         <th>Status Disposisi</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,63 +99,61 @@
                     },
                     autoWidth: false,
                     ajax: {
-                        url: "{{ route('petugasUser.index') }}",
+                        url: "{{ route('laporanSuratMasuk.index') }}",
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();
+                            d.status_disposisi = $('#status_disposisi').val();
                         }
                     },
-                    // columns: [{
-                    //         data: 'DT_RowIndex',
-                    //         name: 'DT_RowIndex',
-                    //         orderable: false,
-                    //         searchable: false,
-                    //     },
-                    //     {
-                    //         data: 'nama_lengkap',
-                    //         name: 'nama_lengkap'
-                    //     },
-                    //     {
-                    //         data: 'username',
-                    //         name: 'username'
-                    //     },
-                    //     {
-                    //         data: function(data) {
-                    //             if (data.jenis_kelamin == "L") {
-                    //                 return 'Laki - Laki';
-                    //             } else if (data.jenis_kelamin == "L") {
-                    //                 return 'Perempuan';
-                    //             } else {
-                    //                 return ''
-                    //             }
-                    //         },
-                    //         name: 'jenis_kelamin'
-                    //     },
-                    //     {
-                    //         data: 'tgl_lahir',
-                    //         name: 'tgl_lahir'
-                    //     },
-                    //     {
-                    //         data: 'alamat',
-                    //         name: 'alamat'
-                    //     },
-                    //     {
-                    //         data: 'email',
-                    //         name: 'email'
-                    //     },
-                    //     {
-                    //         data: 'telp',
-                    //         name: 'telp'
-                    //     },
-                    //     {
-                    //         data: 'role',
-                    //         name: 'role'
-                    //     },
-                    //     {
-                    //         data: 'action',
-                    //         name: 'action'
-                    //     },
-                    // ],
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex',
+                            orderable: false,
+                            searchable: false,
+                        },
+                        {
+                            data: 'no_sm',
+                            name: 'no_sm'
+                        },
+                        {
+                            data: 'tgl_surat',
+                            name: 'tgl_surat'
+                        },
+                        {
+                            data: 'perihal',
+                            name: 'perihal'
+                        },
+                        {
+                            data: 'jenis_surat',
+                            name: 'jenis_surat'
+                        },
+                        {
+                            data: 'asal_surat',
+                            name: 'asal_surat'
+                        },
+                        {
+                            data: 'keterangan',
+                            name: 'keterangan'
+                        },
+                        {
+                            data: function(data) {
+                                let file = data.surat_masuk_id;
+                                let url = "{{ route('laporansuratMasuk.preview', ':file') }}".replace(
+                                    ':file',
+                                    file);
+                                return '<a href="' + url + '" target="_blank">Download</a>';
+                            },
+                            name: 'berkas_sm'
+                        },
+                        {
+                            data: 'status_disposisi',
+                            name: 'status_disposisi'
+                        },
+                    ],
+                });
+                $('#min-date, #max-date, #status_disposisi').on('change', function() {
+                    table.draw();
                 });
 
             });

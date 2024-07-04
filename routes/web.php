@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     Route::get('surat_masuk/{id}', [SuratMasukController::class, 'edit'])->name('suratMasuk.edit');
     Route::put('surat_masuk/{id}', [SuratMasukController::class, 'update'])->name('suratMasuk.update');
     Route::delete('surat_masuk', [SuratMasukController::class, 'destroy'])->name('suratMasuk.destroy');
+    Route::get('preview-pdf/{id}', [SuratMasukController::class, 'previewPdf'])->name('suratMasuk.preview');
 
     // Route Surat Keluar
     Route::get('surat_keluar', [SuratKeluarController::class, 'index'])->name('suratKeluar.index');
@@ -46,6 +47,7 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     Route::get('surat_keluar/{id}', [SuratKeluarController::class, 'edit'])->name('suratKeluar.edit');
     Route::put('surat_keluar/{id}', [SuratKeluarController::class, 'update'])->name('suratKeluar.update');
     Route::delete('surat_keluar', [SuratKeluarController::class, 'destroy'])->name('suratKeluar.destroy');
+    Route::get('preview-pdf-keluar/{id}', [SuratKeluarController::class, 'previewPdf'])->name('suratKeluar.preview');
 
     // Route Disposisi
     Route::get('disposisi', [DisposisiController::class, 'index'])->name('disposisi.index');
@@ -64,6 +66,7 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
 
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-masuk', [LaporanSuratMasukController::class, 'index'])->name('laporanSuratMasuk.index');
+    Route::get('laporan-preview-pdf/{id}', [LaporanSuratMasukController::class, 'previewPdf'])->name('laporansuratMasuk.preview');
 
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-keluar', [LaporanSuratKeluarController::class, 'index'])->name('laporanSuratKeluar.index');
@@ -81,6 +84,7 @@ Route::prefix('petugas')->middleware('role:petugas')->group(function(){
     Route::get('surat_masuk/{id}', [PetugasSuratMasukController::class, 'edit'])->name('petugas.suratMasuk.edit');
     Route::put('surat_masuk/{id}', [PetugasSuratMasukController::class, 'update'])->name('petugas.suratMasuk.update');
     Route::delete('surat_masuk', [PetugasSuratMasukController::class, 'destroy'])->name('petugas.suratMasuk.destroy');
+    Route::get('preview-pdf/{id}', [PetugasSuratMasukController::class, 'previewPdf'])->name('petugas.suratMasuk.preview');
 
     // Route Surat Keluar
     Route::get('surat_keluar', [PetugasSuratKeluarController::class, 'index'])->name('petugas.suratKeluar.index');
@@ -89,6 +93,7 @@ Route::prefix('petugas')->middleware('role:petugas')->group(function(){
     Route::get('surat_keluar/{id}', [PetugasSuratKeluarController::class, 'edit'])->name('petugas.suratKeluar.edit');
     Route::put('surat_keluar/{id}', [PetugasSuratKeluarController::class, 'update'])->name('petugas.suratKeluar.update');
     Route::delete('surat_keluar', [PetugasSuratKeluarController::class, 'destroy'])->name('petugas.suratKeluar.destroy');
+    Route::get('preview-pdf-keluar/{id}', [PetugasSuratKeluarController::class, 'previewPdf'])->name('petugas.suratKeluar.preview');
 
     // Route Disposisi
     Route::get('disposisi', [PetugasDisposisiController::class, 'index'])->name('petugas.disposisi.index');
@@ -113,6 +118,7 @@ Route::prefix('user')->middleware('role:user')->group(function(){
     Route::get('surat_masuk/{id}', [UserSuratMasukController::class, 'edit'])->name('user.suratMasuk.edit');
     Route::put('surat_masuk/{id}', [UserSuratMasukController::class, 'update'])->name('user.suratMasuk.update');
     Route::delete('surat_masuk', [UserSuratMasukController::class, 'destroy'])->name('user.suratMasuk.destroy');
+    Route::get('preview-pdf/{id}', [UserSuratMasukController::class, 'previewPdf'])->name('user.suratMasuk.preview');
 
     // Route Surat Keluar
     Route::get('surat_keluar', [UserSuratKeluarController::class, 'index'])->name('user.suratKeluar.index');
@@ -121,6 +127,7 @@ Route::prefix('user')->middleware('role:user')->group(function(){
     Route::get('surat_keluar/{id}', [UserSuratKeluarController::class, 'edit'])->name('user.suratKeluar.edit');
     Route::put('surat_keluar/{id}', [UserSuratKeluarController::class, 'update'])->name('user.suratKeluar.update');
     Route::delete('surat_keluar', [UserSuratKeluarController::class, 'destroy'])->name('user.suratKeluar.destroy');
+    Route::get('preview-pdf-keluar/{id}', [UserSuratKeluarController::class, 'previewPdf'])->name('user.suratKeluar.preview');
 });
 
 Route::get('', [AuthController::class, 'login_page'])->name('login.page')->middleware('isAuth');

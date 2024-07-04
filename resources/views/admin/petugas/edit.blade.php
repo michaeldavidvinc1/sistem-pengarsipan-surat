@@ -144,8 +144,10 @@
                                                     value="staff_tu_sma">Staff TU SMA</option>
                                                 <option @if ($data->user->jabatan == 'staff_tu_smp') selected @endif
                                                     value="staff_tu_smp">Staff TU SMP</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_sd_tk') selected @endif
-                                                    value="staff_tu_sd_tk">Staff TU SD Sampai TK</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_sd') selected @endif
+                                                    value="staff_tu_sd">Staff TU SD</option>
+                                                <option @if ($data->user->jabatan == 'staff_tu_tk') selected @endif
+                                                    value="staff_tu_tk">Staff TU TK</option>
                                             </select>
                                             @error('jabatan')
                                                 <div class="invalid-feedback">

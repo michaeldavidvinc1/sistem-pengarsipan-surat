@@ -8,6 +8,7 @@ use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Dompdf\Dompdf;
 
 class SuratMasukController extends Controller
 {
@@ -143,5 +144,40 @@ class SuratMasukController extends Controller
         }
 
         return response()->json(['success' => "Records deleted successfully."]);
+    }
+
+    public function previewPdf($id){
+        try {
+            // Temukan data SuratMasuk berdasarkan $id
+        $suratMasuk = SuratMasuk::findOrFail($id);
+
+        // Path ke file PDF di storage
+        $filePath = storage_path('app/public/' . $suratMasuk->berkas_sm);
+
+        // Pastikan file PDF ada
+        if (!file_exists($filePath)) {
+            throw new \Exception("File not found: $filePath");
+        }
+
+        // $pdfContent = file_get_contents($filePath);
+
+        // $dompdf = new Dompdf();
+
+        // $dompdf->loadHtml($filePath);
+
+        // $dompdf->render();
+
+        // return $dompdf->stream('', array("Attachment" => false));
+
+        $content = file_get_contents($filePath);
+
+        // Set header untuk menampilkan PDF di browser
+        return response($content)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'inline; filename="' . basename($filePath) . '"');
+            
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
     }
 }
