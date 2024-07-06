@@ -77,7 +77,12 @@ class DisposisiController extends Controller
 
     public function generate_pdf($id){
 
-        $disposisi = Disposisi::find($id);
+        $disposisi = DB::table('disposisi')
+        ->join('surat_masuk', 'disposisi.surat_masuk_id', '=', 'surat_masuk.id')
+        ->select('disposisi.*', 'surat_masuk.perihal', 'surat_masuk.no_sm', 'surat_masuk.asal_surat')
+        ->where('disposisi.id', $id)
+        ->first();
+        // dd($disposisi->perihal);
         $data = ['disposisi' => $disposisi];
         $pdf = PDF::loadView('print.cetak-disposisi', $data)->setPaper('a4', 'landscape');
 

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembar Disposisi Surat Masuk</title>
+    <title>Laporan Surat Masuk</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,6 +76,23 @@
         .footer .signature p {
             margin: 50px 0 0 0;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -95,45 +110,32 @@
         </div>
         <hr />
         <div class="form-title">
-            LEMBAR DISPOSISI SURAT MASUK
+            Rekapan Laporan Surat Masuk (Penerima dan Periode)
         </div>
         <table>
+            <thead>
+                <tr>
+                    <th>No Surat</th>
+                    <th>Tanggal Surat</th>
+                    <th>Perihal</th>
+                    <th>Jenis Surat</th>
+                    <th>Asal Surat</th>
+                    <th>Keterangan</th>
+                    <th>Status Disposisi</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">No Surat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->no_sm }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Tanggal Disposisi</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->tgl_disposisi }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Perihal</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->perihal }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Asal Surat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->asal_surat }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Sifat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->asal_surat }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Kepada</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->penerima_disposisi }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Keterangan</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->keterangan }}</td>
-                </tr>
+                @foreach ($data as $item)
+                    <tr>
+                        <td>{{ $item->no_sm }}</td>
+                        <td>{{ $item->tgl_surat }}</td>
+                        <td>{{ $item->perihal }}</td>
+                        <td>{{ $item->jenis_surat }}</td>
+                        <td>{{ $item->asal_surat }}</td>
+                        <td>{{ $item->keterangan }}</td>
+                        <td>{{ $item->status_disposisi }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <div class="footer">
@@ -144,6 +146,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

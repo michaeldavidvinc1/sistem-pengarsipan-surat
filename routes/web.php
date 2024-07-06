@@ -67,9 +67,22 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-masuk', [LaporanSuratMasukController::class, 'index'])->name('laporanSuratMasuk.index');
     Route::get('laporan-preview-pdf/{id}', [LaporanSuratMasukController::class, 'previewPdf'])->name('laporansuratMasuk.preview');
+    Route::get('laporan-surat-masuk/pdf', [LaporanSuratMasukController::class, 'generatePDF'])->name('laporanSuratMasuk.pdf');
+    Route::get('laporan-surat-masuk/bulan-ini/pdf', [LaporanSuratMasukController::class, 'cetakBulanIni'])->name('bulanIni.pdf');
+    Route::get('laporan-surat-masuk/minggu-ini/pdf', [LaporanSuratMasukController::class, 'cetakMingguIni'])->name('mingguIni.pdf');
+    Route::get('laporan-surat-masuk/hari-ini/pdf', [LaporanSuratMasukController::class, 'cetakHariIni'])->name('hariIni.pdf');
+    Route::get('laporan-surat-masuk/bulan-kemarin/pdf', [LaporanSuratMasukController::class, 'cetakBulanKemarin'])->name('bulanKemarin.pdf');
+    Route::get('laporan-surat-masuk/kemarin/pdf', [LaporanSuratMasukController::class, 'cetakKemarin'])->name('kemarin.pdf');
 
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-keluar', [LaporanSuratKeluarController::class, 'index'])->name('laporanSuratKeluar.index');
+    Route::get('laporan-preview-pdf-keluar/{id}', [LaporanSuratKeluarController::class, 'previewPdf'])->name('laporansuratKeluar.preview');
+    Route::get('laporan-surat-keluar/pdf', [LaporanSuratKeluarController::class, 'generatePDF'])->name('laporanSuratKeluar.pdf');
+    Route::get('laporan-surat-keluar/bulan-ini/pdf', [LaporanSuratKeluarController::class, 'cetakBulanIni'])->name('bulanIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/minggu-ini/pdf', [LaporanSuratKeluarController::class, 'cetakMingguIni'])->name('mingguIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/hari-ini/pdf', [LaporanSuratKeluarController::class, 'cetakHariIni'])->name('hariIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/bulan-kemarin/pdf', [LaporanSuratKeluarController::class, 'cetakBulanKemarin'])->name('bulanKemarinKeluar.pdf');
+    Route::get('laporan-surat-keluar/kemarin/pdf', [LaporanSuratKeluarController::class, 'cetakKemarin'])->name('kemarinKeluar.pdf');
 
 
 });

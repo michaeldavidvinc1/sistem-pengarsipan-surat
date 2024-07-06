@@ -13,11 +13,11 @@
                         <div>
                             <h6>Buat Laporan</h6>
                             <div>
-                                <a href="#" class="btn btn-primary btn-sm">Bulan Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Minggu Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Hari Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Bulan Kemarin</a>
-                                <a href="#" class="btn btn-primary btn-sm">Kemarin</a>
+                                <button id="bulanIni" class="btn btn-primary btn-sm">Bulan Ini</button>
+                                <a href="#" id="mingguIni" class="btn btn-primary btn-sm">Minggu Ini</a>
+                                <a href="#" id="hariIni" class="btn btn-primary btn-sm">Hari Ini</a>
+                                <a href="#" id="bulanKemarin" class="btn btn-primary btn-sm">Bulan Kemarin</a>
+                                <a href="#" id="kemarin" class="btn btn-primary btn-sm">Kemarin</a>
                             </div>
                         </div>
                         <div class="mt-3">
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="col-2">
-                                    <a href="#" class="btn btn-primary btn-sm">Cetak</a>
+                                    <a href="#" id="cetak" class="btn btn-primary btn-sm">Cetak</a>
                                 </div>
                             </div>
                         </div>
@@ -154,6 +154,61 @@
                 });
                 $('#min-date, #max-date, #status_disposisi').on('change', function() {
                     table.draw();
+                });
+
+                $('#cetak').click(function(e) {
+                    e.preventDefault();
+
+                    let min_date = $('#min-date').val();
+                    let max_date = $('#max-date').val();
+                    let status_disposisi = $('#status_disposisi').val();
+
+                    let url = "{{ route('laporanSuratMasuk.pdf') }}";
+
+                    url += '?min_date=' + min_date + '&max_date=' + max_date + '&status_disposisi=' +
+                        status_disposisi;
+
+                    window.location.href = url;
+                });
+
+                $('#bulanIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('bulanIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#mingguIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('mingguIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#hariIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('hariIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#bulanKemarin').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('bulanKemarin.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#kemarin').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('kemarin.pdf') }}";
+
+                    window.location.href = url;
                 });
 
             });
