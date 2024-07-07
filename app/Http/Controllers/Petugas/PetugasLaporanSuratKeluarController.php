@@ -7,6 +7,7 @@ use App\Models\SuratKeluar;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PetugasLaporanSuratKeluarController extends Controller
 {
