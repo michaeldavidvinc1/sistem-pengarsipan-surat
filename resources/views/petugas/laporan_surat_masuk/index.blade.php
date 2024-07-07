@@ -13,19 +13,21 @@
                         <div>
                             <h6>Buat Laporan</h6>
                             <div>
-                                <a href="#" class="btn btn-primary btn-sm">Bulan Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Minggu Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Hari Ini</a>
-                                <a href="#" class="btn btn-primary btn-sm">Bulan Kemarin</a>
-                                <a href="#" class="btn btn-primary btn-sm">Kemarin</a>
+                                <button id="bulanIni" class="btn btn-primary btn-sm">Bulan Ini</button>
+                                <a href="#" id="mingguIni" class="btn btn-primary btn-sm">Minggu Ini</a>
+                                <a href="#" id="hariIni" class="btn btn-primary btn-sm">Hari Ini</a>
+                                <a href="#" id="bulanKemarin" class="btn btn-primary btn-sm">Bulan Kemarin</a>
+                                <a href="#" id="kemarin" class="btn btn-primary btn-sm">Kemarin</a>
                             </div>
                         </div>
                         <div class="mt-3">
                             <h6>Berdasarkan status disposisi</h6>
                             <div class="col-3">
-                                <select class="form-select form-control" aria-label="Default select example">
-                                    <option selected>-- Status Disposisi --</option>
-                                    <option value="1">Semua</option>
+                                <select class="form-select form-control" id="status_disposisi"
+                                    aria-label="Default select example">
+                                    <option value="" selected>-- Status Disposisi --</option>
+                                    <option value="sudah">Sudah</option>
+                                    <option value="belum">Belum</option>
                                 </select>
                             </div>
                         </div>
@@ -35,19 +37,19 @@
                                 <div class="col-2">
                                     <div class="mb-3">
                                         <div class="form-icon position-relative">
-                                            <input name="name" id="name" type="date" class="form-control">
+                                            <input id="min-date" type="date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2">
                                     <div class="mb-3">
                                         <div class="form-icon position-relative">
-                                            <input name="name" id="name" type="date" class="form-control">
+                                            <input id="max-date" type="date" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-2">
-                                    <a href="#" class="btn btn-primary btn-sm">Cetak</a>
+                                    <a href="#" id="cetak" class="btn btn-primary btn-sm">Cetak</a>
                                 </div>
                             </div>
                         </div>
@@ -66,10 +68,8 @@
                                         <th>Jenis Surat</th>
                                         <th>Asal Surat</th>
                                         <th>Keterangan</th>
-                                        <th>Lokasi Berkas</th>
-                                        <th>Status</th>
+                                        <th>Berkas</th>
                                         <th>Status Disposisi</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,63 +99,117 @@
                     },
                     autoWidth: false,
                     ajax: {
-                        url: "{{ route('petugas.suratMasuk.index') }}",
+                        url: "{{ route('petugas.laporanSuratMasuk.index') }}",
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();
+                            d.status_disposisi = $('#status_disposisi').val();
                         }
                     },
-                    // columns: [{
-                    //         data: 'DT_RowIndex',
-                    //         name: 'DT_RowIndex',
-                    //         orderable: false,
-                    //         searchable: false,
-                    //     },
-                    //     {
-                    //         data: 'nama_lengkap',
-                    //         name: 'nama_lengkap'
-                    //     },
-                    //     {
-                    //         data: 'username',
-                    //         name: 'username'
-                    //     },
-                    //     {
-                    //         data: function(data) {
-                    //             if (data.jenis_kelamin == "L") {
-                    //                 return 'Laki - Laki';
-                    //             } else if (data.jenis_kelamin == "L") {
-                    //                 return 'Perempuan';
-                    //             } else {
-                    //                 return ''
-                    //             }
-                    //         },
-                    //         name: 'jenis_kelamin'
-                    //     },
-                    //     {
-                    //         data: 'tgl_lahir',
-                    //         name: 'tgl_lahir'
-                    //     },
-                    //     {
-                    //         data: 'alamat',
-                    //         name: 'alamat'
-                    //     },
-                    //     {
-                    //         data: 'email',
-                    //         name: 'email'
-                    //     },
-                    //     {
-                    //         data: 'telp',
-                    //         name: 'telp'
-                    //     },
-                    //     {
-                    //         data: 'role',
-                    //         name: 'role'
-                    //     },
-                    //     {
-                    //         data: 'action',
-                    //         name: 'action'
-                    //     },
-                    // ],
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex',
+                            orderable: false,
+                            searchable: false,
+                        },
+                        {
+                            data: 'no_sm',
+                            name: 'no_sm'
+                        },
+                        {
+                            data: 'tgl_surat',
+                            name: 'tgl_surat'
+                        },
+                        {
+                            data: 'perihal',
+                            name: 'perihal'
+                        },
+                        {
+                            data: 'jenis_surat',
+                            name: 'jenis_surat'
+                        },
+                        {
+                            data: 'asal_surat',
+                            name: 'asal_surat'
+                        },
+                        {
+                            data: 'keterangan',
+                            name: 'keterangan'
+                        },
+                        {
+                            data: function(data) {
+                                let file = data.surat_masuk_id;
+                                let url = "{{ route('petugas.laporansuratMasuk.preview', ':file') }}"
+                                    .replace(
+                                        ':file',
+                                        file);
+                                return '<a href="' + url + '" target="_blank">Download</a>';
+                            },
+                            name: 'berkas_sm'
+                        },
+                        {
+                            data: 'status_disposisi',
+                            name: 'status_disposisi'
+                        },
+                    ],
+                });
+                $('#min-date, #max-date, #status_disposisi').on('change', function() {
+                    table.draw();
+                });
+
+                $('#cetak').click(function(e) {
+                    e.preventDefault();
+
+                    let min_date = $('#min-date').val();
+                    let max_date = $('#max-date').val();
+                    let status_disposisi = $('#status_disposisi').val();
+
+                    let url = "{{ route('petugas.laporanSuratMasuk.pdf') }}";
+
+                    url += '?min_date=' + min_date + '&max_date=' + max_date + '&status_disposisi=' +
+                        status_disposisi;
+
+                    window.location.href = url;
+                });
+
+                $('#bulanIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('petugas.bulanIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#mingguIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('petugas.mingguIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#hariIni').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('petugas.hariIni.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#bulanKemarin').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('petugas.bulanKemarin.pdf') }}";
+
+                    window.location.href = url;
+                });
+
+                $('#kemarin').click(function(e) {
+                    e.preventDefault();
+
+                    let url = "{{ route('petugas.kemarin.pdf') }}";
+
+                    window.location.href = url;
                 });
 
             });

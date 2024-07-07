@@ -10,19 +10,24 @@
             <div class="col-12 mt-4">
                 <div class="card rounded shadow">
                     <div class="p-4">
-                        <a href="{{ route('petugas.disposisi.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+                        <a href="{{ route('disposisi.index') }}" class="btn btn-primary btn-sm">Kembali</a>
                     </div>
                     <div class="p-4">
-                        <form action="{{ route('petugas.disposisi.store') }}" method="POST">
+                        <form action="{{ route('disposisi.store') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">No.Surat</label>
+                                        <label class="form-label">No Surat</label>
                                         <div class="form-icon position-relative">
-                                            <input type="text" name="no_sm" id="no_sm" class="form-control"
-                                                placeholder="No Surat..." required>
-                                            @error('no_sm')
+                                            <select class="form-select form-control" name="surat_masuk_id"
+                                                aria-label="Default select example">
+                                                <option selected>-- No Surat --</option>
+                                                @foreach ($surat_masuk as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->no_sm }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('role')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -46,11 +51,17 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Tanggal Surat</label>
+                                        <label class="form-label">Sifat</label>
                                         <div class="form-icon position-relative">
-                                            <input type="date" name="tgl_surat" id="tgl_surat" class="form-control"
-                                                required>
-                                            @error('tgl_surat')
+                                            <select class="form-select form-control" name="sifat"
+                                                aria-label="Default select example">
+                                                <option selected>-- Sifat --</option>
+                                                <option value="penting">Penting</option>
+                                                <option value="rahasia">Rahasia</option>
+                                                <option value="segera">Segera</option>
+                                                <option value="biasa">Biasa</option>
+                                            </select>
+                                            @error('role')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

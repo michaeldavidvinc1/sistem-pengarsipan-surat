@@ -113,12 +113,29 @@ Route::prefix('petugas')->middleware('role:petugas')->group(function(){
     Route::get('disposisi/create', [PetugasDisposisiController::class, 'create'])->name('petugas.disposisi.create');
     Route::post('disposisi/create', [PetugasDisposisiController::class, 'store'])->name('petugas.disposisi.store');
     Route::delete('disposisi', [PetugasDisposisiController::class, 'destroy'])->name('petugas.disposisi.destroy');
+    Route::get('disposisi-pdf/{id}', [PetugasDisposisiController::class, 'generate_pdf'])->name('petugas.disposisi.generatePdf');
 
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-masuk', [PetugasLaporanSuratMasukController::class, 'index'])->name('petugas.laporanSuratMasuk.index');
 
+    Route::get('laporan-preview-pdf/{id}', [PetugasLaporanSuratMasukController::class, 'previewPdf'])->name('petugas.laporansuratMasuk.preview');
+    Route::get('laporan-surat-masuk/pdf', [PetugasLaporanSuratMasukController::class, 'generatePDF'])->name('petugas.laporanSuratMasuk.pdf');
+    Route::get('laporan-surat-masuk/bulan-ini/pdf', [PetugasLaporanSuratMasukController::class, 'cetakBulanIni'])->name('petugas.bulanIni.pdf');
+    Route::get('laporan-surat-masuk/minggu-ini/pdf', [PetugasLaporanSuratMasukController::class, 'cetakMingguIni'])->name('petugas.mingguIni.pdf');
+    Route::get('laporan-surat-masuk/hari-ini/pdf', [PetugasLaporanSuratMasukController::class, 'cetakHariIni'])->name('petugas.hariIni.pdf');
+    Route::get('laporan-surat-masuk/bulan-kemarin/pdf', [PetugasLaporanSuratMasukController::class, 'cetakBulanKemarin'])->name('petugas.bulanKemarin.pdf');
+    Route::get('laporan-surat-masuk/kemarin/pdf', [PetugasLaporanSuratMasukController::class, 'cetakKemarin'])->name('petugas.kemarin.pdf');
+
     // Route Laporan Surat Masuk
     Route::get('laporan-surat-keluar', [PetugasLaporanSuratKeluarController::class, 'index'])->name('petugas.laporanSuratKeluar.index');
+
+    Route::get('laporan-preview-pdf-keluar/{id}', [PetugasLaporanSuratKeluarController::class, 'previewPdf'])->name('petugas.laporansuratKeluar.preview');
+    Route::get('laporan-surat-keluar/pdf', [PetugasLaporanSuratKeluarController::class, 'generatePDF'])->name('petugas.laporanSuratKeluar.pdf');
+    Route::get('laporan-surat-keluar/bulan-ini/pdf', [PetugasLaporanSuratKeluarController::class, 'cetakBulanIni'])->name('petugas.bulanIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/minggu-ini/pdf', [PetugasLaporanSuratKeluarController::class, 'cetakMingguIni'])->name('petugas.mingguIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/hari-ini/pdf', [PetugasLaporanSuratKeluarController::class, 'cetakHariIni'])->name('petugas.hariIniKeluar.pdf');
+    Route::get('laporan-surat-keluar/bulan-kemarin/pdf', [PetugasLaporanSuratKeluarController::class, 'cetakBulanKemarin'])->name('petugas.bulanKemarinKeluar.pdf');
+    Route::get('laporan-surat-keluar/kemarin/pdf', [PetugasLaporanSuratKeluarController::class, 'cetakKemarin'])->name('petugas.kemarinKeluar.pdf');
 });
 
 Route::prefix('user')->middleware('role:user')->group(function(){

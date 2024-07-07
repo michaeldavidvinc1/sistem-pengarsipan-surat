@@ -11,7 +11,8 @@
                 <div class="card rounded shadow">
                     <div class="p-4">
                         <div class="mb-3">
-                            <a href="{{ route('petugas.disposisi.create') }}" class="btn btn-primary btn-sm">Buat Disposisi</a>
+                            <a href="{{ route('petugas.disposisi.create') }}" class="btn btn-primary btn-sm">Buat
+                                Disposisi</a>
                             <button class="btn btn-danger btn-sm" id="deleteButton">Hapus</button>
                             <button class="btn btn-secondary btn-sm" id="reset">Reset</button>
                         </div>
@@ -25,10 +26,11 @@
                                     <tr>
                                         <th></th>
                                         <th>No Surat</th>
-                                        <th>Tanggal Surat</th>
                                         <th>Tanggal Diposisi</th>
+                                        <th>Perihal</th>
                                         <th>Dari</th>
                                         <th>Kepada</th>
+                                        <th>Sifat</th>
                                         <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -74,11 +76,11 @@
                         },
                         {
                             data: 'no_sm',
-                            name: 'no_sm'
+                            name: 'surat_masuk_id'
                         },
                         {
-                            data: 'tgl_surat',
-                            name: 'tgl_surat'
+                            data: 'perihal',
+                            name: 'perihal'
                         },
                         {
                             data: 'tgl_disposisi',
@@ -91,6 +93,10 @@
                         {
                             data: 'penerima_disposisi',
                             name: 'penerima_disposisi'
+                        },
+                        {
+                            data: 'sifat',
+                            name: 'sifat'
                         },
                         {
                             data: 'keterangan',
