@@ -40,7 +40,8 @@
     <!-- Loader -->
 
     <!-- Hero Start -->
-    <section class="bg-home bg-circle-gradiant d-flex align-items-center">
+    <section class="d-flex align-items-center"
+        style="background: url('assets/login.jpg') no-repeat fixed center; height: 100vh;">
         <div class="bg-overlay bg-overlay-white"></div>
         <div class="container">
             <div class="row">

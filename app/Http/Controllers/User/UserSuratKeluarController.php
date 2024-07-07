@@ -25,10 +25,6 @@ class UserSuratKeluarController extends Controller
     
             return datatables()::of($suratKeluar)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $btnEdit  = '<a href="'.route('user.suratKeluar.edit', $row->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
-                    return '<div class="d-flex gap-2">'.$btnEdit.'</div>';
-                })
                 ->make(true);
         }
         return view('user.surat_keluar.index');

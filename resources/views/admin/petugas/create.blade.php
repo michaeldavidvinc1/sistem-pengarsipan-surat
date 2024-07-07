@@ -141,16 +141,9 @@
                                     <div class="mb-3">
                                         <label class="form-label">Jabatan</label>
                                         <div class="form-icon position-relative">
-                                            <select class="form-select form-control" name="jabatan"
-                                                aria-label="Default select example">
-                                                <option selected>-- Jabatan --</option>
-                                                <option value="staff_tu_yayasan">Staff TU Yayasan</option>
-                                                <option value="staff_tu_sma">Staff TU SMA</option>
-                                                <option value="staff_tu_smp">Staff TU SMP</option>
-                                                <option value="staff_tu_sd">Staff TU SD </option>
-                                                <option value="staff_tu_tk">Staff TU TK</option>
-                                            </select>
-                                            @error('role')
+                                            <input type="text" name="jabatan" id="jabatan" class="form-control"
+                                                placeholder="Jabatan" required>
+                                            @error('jabatan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

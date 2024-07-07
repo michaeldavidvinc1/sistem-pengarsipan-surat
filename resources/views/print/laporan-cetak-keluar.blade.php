@@ -3,6 +3,7 @@
 
 <head>
     <title>Laporan Surat Keluar</title>
+    <link rel="shortcut icon" href="{{ asset('assets/logo-web.ico') }}" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -110,7 +111,7 @@
         </div>
         <hr />
         <div class="form-title">
-            Rekapan Laporan Surat Keluar (Penerima dan Periode)
+            Rekapan Laporan Surat Keluar ({{ $min_date }} s/d {{ $max_date }})
         </div>
         <table>
             <thead>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lembar Disposisi Surat Masuk</title>
+    <link rel="shortcut icon" href="{{ asset('assets/logo-web.ico') }}" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,25 +46,23 @@
             margin-bottom: 20px;
         }
 
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .form-group label {
-            flex: 0 0 150px;
-            font-weight: bold;
-        }
-
-        .form-group .colon {
-            flex: 0 0 10px;
-        }
-
-        .form-group p {
-            flex: 1;
-            padding: 5px;
+        td {
             border: 1px solid black;
-            box-sizing: border-box;
+            padding: 8px;
+        }
+
+        .no-border {
+            border: none;
+            padding: 0;
+        }
+
+        .full-width {
+            width: 100%;
         }
 
         .footer {
@@ -97,45 +96,6 @@
         <div class="form-title">
             LEMBAR DISPOSISI SURAT MASUK
         </div>
-        <table>
-            <tbody>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">No Surat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->no_sm }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Tanggal Disposisi</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->tgl_disposisi }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Perihal</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->perihal }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Asal Surat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->asal_surat }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Sifat</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->asal_surat }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Kepada</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->penerima_disposisi }}</td>
-                </tr>
-                <tr>
-                    <td style="font-weight: 500; width: 150px">Keterangan</td>
-                    <td>:</td>
-                    <td>{{ $disposisi->keterangan }}</td>
-                </tr>
-            </tbody>
-        </table>
         <div class="footer">
             <div class="signature">
                 <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>

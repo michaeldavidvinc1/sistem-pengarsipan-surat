@@ -15,16 +15,14 @@
                     class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
                     <div class="d-flex align-items-center">
                         <div class="icon text-center rounded-pill">
-                            <i class="uil uil-user-circle fs-4 mb-0"></i>
+                            <i class="uil uil-envelope fs-4 mb-0"></i>
                         </div>
                         <div class="flex-1 ms-3">
                             <h6 class="mb-0 text-muted">Surat Masuk</h6>
                             <p class="fs-5 text-dark fw-bold mb-0"><span class="counter-value"
-                                    data-target="4589">2100</span></p>
+                                    data-target="{{ $surat_masuk }}">0</span></p>
                         </div>
                     </div>
-
-                    <span class="text-danger"><i class="uil uil-chart-down"></i> 0.5%</span>
                 </a>
             </div><!--end col-->
 
@@ -33,16 +31,14 @@
                     class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
                     <div class="d-flex align-items-center">
                         <div class="icon text-center rounded-pill">
-                            <i class="uil uil-usd-circle fs-4 mb-0"></i>
+                            <i class="uil uil-envelope-check fs-4 mb-0"></i>
                         </div>
                         <div class="flex-1 ms-3">
                             <h6 class="mb-0 text-muted">Surat Keluar</h6>
-                            <p class="fs-5 text-dark fw-bold mb-0">$<span class="counter-value"
-                                    data-target="48575">35214</span></p>
+                            <p class="fs-5 text-dark fw-bold mb-0"><span class="counter-value"
+                                    data-target="{{ $surat_keluar }}">0</span></p>
                         </div>
                     </div>
-
-                    <span class="text-success"><i class="uil uil-arrow-growth"></i> 3.84%</span>
                 </a>
             </div><!--end col-->
 
@@ -51,16 +47,14 @@
                     class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
                     <div class="d-flex align-items-center">
                         <div class="icon text-center rounded-pill">
-                            <i class="uil uil-shopping-bag fs-4 mb-0"></i>
+                            <i class="uil uil-file-check-alt fs-4 mb-0"></i>
                         </div>
                         <div class="flex-1 ms-3">
                             <h6 class="mb-0 text-muted">Disposisi</h6>
                             <p class="fs-5 text-dark fw-bold mb-0"><span class="counter-value"
-                                    data-target="4800">3402</span></p>
+                                    data-target="{{ $disposisi }}">0</span></p>
                         </div>
                     </div>
-
-                    <span class="text-success"><i class="uil uil-arrow-growth"></i> 1.46%</span>
                 </a>
             </div><!--end col-->
         </div><!--end row-->

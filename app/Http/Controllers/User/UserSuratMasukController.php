@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\JenisSurat;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class UserSuratMasukController extends Controller
@@ -13,7 +14,10 @@ class UserSuratMasukController extends Controller
     public function index(Request $request){
 
         if ($request->ajax()) {
-            $query = SuratMasuk::query();
+            $query = DB::table('surat_masuk')
+                ->join('jenis_surat', 'surat_masuk.jenis_surat_id', '=', 'jenis_surat.id')
+                ->select('surat_masuk.*', 'jenis_surat.jenis_surat')
+                ->latest();
     
             // Filter berdasarkan tanggal
             if ($request->filled('min_date') && $request->filled('max_date')) {

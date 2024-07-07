@@ -86,8 +86,8 @@
                             name: 'perihal'
                         },
                         {
-                            data: 'jenis_surat_id',
-                            name: 'jenis_surat_id'
+                            data: 'jenis_surat',
+                            name: 'jenis_surat'
                         },
                         {
                             data: 'asal_surat',

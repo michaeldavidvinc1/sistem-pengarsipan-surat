@@ -9,13 +9,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\DB;
 
 class SuratMasukController extends Controller
 {
     public function index(Request $request){
 
         if ($request->ajax()) {
-            $query = SuratMasuk::query();
+            $query = DB::table('surat_masuk')
+                ->join('jenis_surat', 'surat_masuk.jenis_surat_id', '=', 'jenis_surat.id')
+                ->select('surat_masuk.*', 'jenis_surat.jenis_surat')
+                ->latest();
     
             // Filter berdasarkan tanggal
             if ($request->filled('min_date') && $request->filled('max_date')) {

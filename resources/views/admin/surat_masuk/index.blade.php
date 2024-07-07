@@ -30,6 +30,7 @@
                                         <th>Jenis Surat</th>
                                         <th>Asal Surat</th>
                                         <th>Keterangan</th>
+                                        <th>Lokasi Berkas</th>
                                         <th>Berkas</th>
                                         <th>Disposisi</th>
                                         <th>Aksi</th>
@@ -87,8 +88,8 @@
                             name: 'perihal'
                         },
                         {
-                            data: 'jenis_surat_id',
-                            name: 'jenis_surat_id'
+                            data: 'jenis_surat',
+                            name: 'jenis_surat'
                         },
                         {
                             data: 'asal_surat',
@@ -97,6 +98,10 @@
                         {
                             data: 'keterangan',
                             name: 'keterangan'
+                        },
+                        {
+                            data: 'lokasi_sm',
+                            name: 'lokasi_sm'
                         },
                         {
                             data: function(data) {

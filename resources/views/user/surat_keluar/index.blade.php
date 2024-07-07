@@ -11,8 +11,8 @@
                 <div class="card rounded shadow">
                     <div class="p-4">
                         <div class="mb-3">
-                            <a href="{{ route('user.suratKeluar.create') }}" class="btn btn-primary btn-sm">Input Data</a>
-                            <button class="btn btn-danger btn-sm" id="deleteButton">Hapus</button>
+                            {{-- <a href="{{ route('user.suratKeluar.create') }}" class="btn btn-primary btn-sm">Input Data</a> --}}
+                            {{-- <button class="btn btn-danger btn-sm" id="deleteButton">Hapus</button> --}}
                             <button class="btn btn-secondary btn-sm" id="reset">Reset</button>
                         </div>
                         <div class="table-responsive shadow rounded-bottom p-2">
@@ -31,7 +31,6 @@
                                         <th>Lokasi Surat</th>
                                         <th>Yang Menandatangani</th>
                                         <th>Berkas</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -104,10 +103,6 @@
                                 return '<a href="' + url + '" download>Download</a>';
                             },
                             name: 'berkas_sk'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
                         },
                     ],
                 });

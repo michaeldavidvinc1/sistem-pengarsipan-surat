@@ -92,7 +92,15 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+
+        $min_date = $request->min_date ?: $data->min('tgl_surat');
+        $max_date = $request->max_date ?: $data->max('tgl_surat');
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');
@@ -112,7 +120,14 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+        $min_date = Carbon::now()->startOfMonth();
+        $max_date = Carbon::now()->endOfMonth();
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');
@@ -132,7 +147,14 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+        $min_date = Carbon::now()->startOfWeek();
+        $max_date = Carbon::now()->endOfWeek();
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');
@@ -152,7 +174,14 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+        $min_date = Carbon::today();
+        $max_date = Carbon::today();
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');
@@ -175,7 +204,14 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+        $min_date = Carbon::now()->subMonth()->startOfMonth();
+        $max_date = Carbon::now()->subMonth()->endOfMonth();
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');
@@ -197,7 +233,14 @@ class PetugasLaporanSuratMasukController extends Controller
             sweetalert()->error('Data Kosong');
             return redirect()->back();
         }
-        $loadData = ['data' => $data];
+        $min_date = Carbon::yesterday()->toDateString();
+        $max_date = Carbon::yesterday()->toDateString();
+
+        $loadData = [
+            'data' => $data,
+            'min_date' => $min_date,
+            'max_date' => $max_date,
+        ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
         return $pdf->download('laporan_surat_masuk.pdf');

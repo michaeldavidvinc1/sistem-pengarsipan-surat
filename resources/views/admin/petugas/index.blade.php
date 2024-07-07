@@ -111,19 +111,7 @@
                             name: 'role'
                         },
                         {
-                            data: function(data) {
-                                if (data.jabatan == "staff_tu_yayasan") {
-                                    return 'Staff TU Yayasan';
-                                } else if (data.jabatan == "staff_tu_sma") {
-                                    return 'Staff TU SMA';
-                                } else if (data.jabatan == "staff_tu_smp") {
-                                    return 'Staff TU SMP';
-                                } else if (data.jabatan == "staff_tu_sd_tk") {
-                                    return 'Staff TU SD Sampai TK'
-                                } else {
-                                    return ''
-                                }
-                            },
+                            data: 'jabatan',
                             name: 'jabatan'
                         },
                         {

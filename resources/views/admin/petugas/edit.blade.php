@@ -135,20 +135,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Jabatan</label>
                                         <div class="form-icon position-relative">
-                                            <select class="form-select form-control" name="jabatan"
-                                                aria-label="Default select example">
-                                                <option selected>-- Jabatan --</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_yayasan') selected @endif
-                                                    value="staff_tu_yayasan">Staff TU Yayasan</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_sma') selected @endif
-                                                    value="staff_tu_sma">Staff TU SMA</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_smp') selected @endif
-                                                    value="staff_tu_smp">Staff TU SMP</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_sd') selected @endif
-                                                    value="staff_tu_sd">Staff TU SD</option>
-                                                <option @if ($data->user->jabatan == 'staff_tu_tk') selected @endif
-                                                    value="staff_tu_tk">Staff TU TK</option>
-                                            </select>
+                                            <input type="text" name="jabatan" id="jabatan" value="{{ $data->jabatan }}" class="form-control"
+                                                placeholder="Jabatan" required>
                                             @error('jabatan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
