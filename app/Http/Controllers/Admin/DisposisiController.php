@@ -84,6 +84,7 @@ class DisposisiController extends Controller
         ->first();
         // dd($disposisi->perihal);
         $data = ['disposisi' => $disposisi];
+        // dd($disposisi);
         $pdf = PDF::loadView('print.cetak-disposisi', $data)->setPaper('a4', 'landscape');
 
         return $pdf->stream('sample.pdf');

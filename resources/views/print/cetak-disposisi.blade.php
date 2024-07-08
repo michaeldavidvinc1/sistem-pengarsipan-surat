@@ -46,15 +46,6 @@
             margin-bottom: 20px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td {
-            border: 1px solid black;
-            padding: 8px;
-        }
 
         .no-border {
             border: none;
@@ -77,6 +68,28 @@
         .footer .signature p {
             margin: 50px 0 0 0;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            padding: 15px;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        .border-right {
+            border-right: 2px solid black;
+        }
+
+        .border-bottom {
+            border-bottom: 2px solid black;
+        }
+
+        .border-top {
+            border-top: 2px solid black;
+        }
     </style>
 </head>
 
@@ -93,9 +106,53 @@
                 Website : http://www.pesantrenbabussalam.com</p>
         </div>
         <hr />
-        <div class="form-title">
-            LEMBAR DISPOSISI SURAT MASUK
-        </div>
+        {{-- asdasd --}}
+        <div class="form-title">LEMBAR DISPOSISI SURAT MASUK</div>
+
+        <table style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td class="border-right border-bottom">
+                        <label>No. Surat :</label>
+                        <label>{{ $disposisi->no_sm }}</label>
+                    </td>
+                    <td class="border-bottom">
+                        <label>Sifat :</label>
+                        <label>{{ $disposisi->sifat }}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right border-bottom">
+                        <label>Asal Surat :</label>
+                        <label>{{ $disposisi->asal_surat }}</label>
+                    </td>
+                    <td class="border-bottom">
+                        <label>Kepada :</label>
+                        <label>{{ $disposisi->penerima_disposisi }}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right border-bottom">
+                        <label>Tanggal Disposisi :</label>
+                        <label>{{ $disposisi->tgl_disposisi }}</label>
+                    </td>
+                    <td class="border-bottom"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="border-top border-bottom">
+                        <label>Perihal :</label>
+                        <label>{{ $disposisi->perihal }}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="border-top">
+                        <label>Keterangan :</label>
+                        <label>{{ $disposisi->keterangan }}</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {{-- asdasd --}}
         <div class="footer">
             <div class="signature">
                 <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
