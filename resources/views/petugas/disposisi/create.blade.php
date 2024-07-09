@@ -10,10 +10,10 @@
             <div class="col-12 mt-4">
                 <div class="card rounded shadow">
                     <div class="p-4">
-                        <a href="{{ route('disposisi.index') }}" class="btn btn-primary btn-sm">Kembali</a>
+                        <a href="{{ route('petugas.disposisi.index') }}" class="btn btn-primary btn-sm">Kembali</a>
                     </div>
                     <div class="p-4">
-                        <form action="{{ route('disposisi.store') }}" method="POST">
+                        <form action="{{ route('petugas.disposisi.store') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
