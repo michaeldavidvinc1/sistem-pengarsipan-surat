@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Lokasi Berkas</label>
+                                        <label class="form-label">Lokasi Surat</label>
                                         <div class="form-icon position-relative">
                                             <input type="text" name="lokasi_sk" id="lokasi_sk" class="form-control"
                                                 placeholder="Lokasi Berkas..." required>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Ketarangan</label>
+                                        <label class="form-label">Keterangan</label>
                                         <div class="form-icon position-relative">
                                             <textarea name="keterangan" id="keterangan" rows="2" cols="1" class="form-control"
                                                 placeholder="Keterangan..." required></textarea>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">File Berkas</label>
+                                        <label class="form-label"> Berkas</label>
                                         <div class="form-icon position-relative">
                                             <input type="file" name="berkas_sk" id="berkas_sk" class="form-control"
                                                 required>

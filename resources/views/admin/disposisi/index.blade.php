@@ -78,12 +78,12 @@
                             name: 'surat_masuk_id'
                         },
                         {
-                            data: 'perihal',
-                            name: 'perihal'
-                        },
-                        {
                             data: 'tgl_disposisi',
                             name: 'tgl_disposisi'
+                        },
+                        {
+                            data: 'perihal',
+                            name: 'perihal'
                         },
                         {
                             data: 'asal_surat',

@@ -108,31 +108,31 @@
         <hr />
         {{-- asdasd --}}
         <div class="form-title">LEMBAR DISPOSISI SURAT MASUK</div>
-
-        <table style="border: 1px solid black">
+        
+        <table style="border: 2px solid black">
             <tbody>
                 <tr>
-                    <td class="border-right border-bottom">
+                    <td class="border top border-right ">
                         <label>No. Surat :</label>
                         <label>{{ $disposisi->no_sm }}</label>
                     </td>
-                    <td class="border-bottom">
+                    <td class="border-left">
                         <label>Sifat :</label>
                         <label>{{ $disposisi->sifat }}</label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="border-right border-bottom">
+                    <td class="border-right ">
                         <label>Asal Surat :</label>
                         <label>{{ $disposisi->asal_surat }}</label>
                     </td>
-                    <td class="border-bottom">
+                    <td class="border-left">
                         <label>Kepada :</label>
                         <label>{{ $disposisi->penerima_disposisi }}</label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="border-right border-bottom">
+                    <td class="border-right ">
                         <label>Tanggal Disposisi :</label>
                         <label>{{ $disposisi->tgl_disposisi }}</label>
                     </td>

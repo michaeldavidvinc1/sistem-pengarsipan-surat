@@ -3,7 +3,7 @@
 @section('section')
     <div class="layout-specing">
         <div class="d-md-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Laporan Surat Masuk</h5>
+            <h5 class="mb-0">Laporan Surat Keluar</h5>
         </div>
 
         <div class="row">
@@ -57,6 +57,7 @@
                                         <th>Penerima</th>
                                         <th>Lokasi Surat</th>
                                         <th>Yang Menandatangani</th>
+                                        <th>Keterangan</th>
                                         <th>Berkas</th>
                                     </tr>
                                 </thead>
@@ -122,6 +123,10 @@
                         {
                             data: 'yang_menandatangani',
                             name: 'yang_menandatangani'
+                        },
+                        {
+                            data: 'keterangan',
+                            name: 'keterangan'
                         },
                         {
                             data: function(data) {

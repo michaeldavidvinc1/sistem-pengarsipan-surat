@@ -31,6 +31,7 @@
                                         <th>Lokasi Surat</th>
                                         <th>Yang Menandatangani</th>
                                         <th>Berkas</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -105,6 +106,10 @@
                                 return '<a href="' + url + '" target="_blank">Download</a>';
                             },
                             name: 'berkas_sk'
+                        },
+                        {
+                            data: 'keterangan',
+                            name: 'keterangan'
                         },
                         {
                             data: 'action',
