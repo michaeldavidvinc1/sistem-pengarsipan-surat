@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login | Sistem Pengarsipan Surat</title>
+    <title>Login |E-Arsip Babussalam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
     <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
@@ -42,7 +42,7 @@
     <!-- Hero Start -->
     <section class="d-flex align-items-center"
         style="background: url('assets/login.jpg') no-repeat fixed center; height: 100vh;">
-        <div class="bg-overlay bg-overlay-white"></div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">

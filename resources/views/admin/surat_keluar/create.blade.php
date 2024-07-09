@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Lokasi Surat</label>
+                                        <label class="form-label">Lokasi Berkas</label>
                                         <div class="form-icon position-relative">
                                             <input type="text" name="lokasi_sk" id="lokasi_sk" class="form-control"
                                                 placeholder="Lokasi Berkas..." required>

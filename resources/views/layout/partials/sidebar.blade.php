@@ -6,7 +6,7 @@
                 <img src="{{ asset('assets/logo.png') }}" height="24" class="logo-dark-mode" alt="">
                 <span class="sidebar-colored d-flex gap-3">
                     <img src="{{ asset('assets/logo.png') }}" height="50" alt="">
-                    <p style="margin-top: 15px">Dashboard</p>
+                    <p style="margin-top: 15px">E-Arsip Babussalam</p>
                 </span>
             </a>
         </div>

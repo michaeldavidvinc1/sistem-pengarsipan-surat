@@ -28,8 +28,9 @@
                                         <th>Tanggal Dikeluarkan</th>
                                         <th>Perihal</th>
                                         <th>Penerima</th>
-                                        <th>Lokasi Surat</th>
+                                        <th>Lokasi Berkas</th>
                                         <th>Yang Menandatangani</th>
+                                        <th>Keterangan</th>
                                         <th>Berkas</th>
                                     </tr>
                                 </thead>
@@ -95,6 +96,10 @@
                         {
                             data: 'yang_menandatangani',
                             name: 'yang_menandatangani'
+                        },
+                        {
+                            data: 'keterangan',
+                            name: 'keterangan'
                         },
                         {
                             data: function(data) {

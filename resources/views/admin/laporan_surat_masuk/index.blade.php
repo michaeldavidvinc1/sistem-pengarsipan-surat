@@ -20,7 +20,7 @@
                                 <a href="#" id="kemarin" class="btn btn-primary btn-sm">Kemarin</a>
                             </div>
                         </div>
-                        {{-- <div class="mt-3">
+                        <div class="mt-3">
                             <h6>Berdasarkan status disposisi</h6>
                             <div class="col-3">
                                 <select class="form-select form-control" id="status_disposisi"
@@ -30,7 +30,7 @@
                                     <option value="belum">Belum</option>
                                 </select>
                             </div>
-                        </div> --}}
+                        </div> 
                         <div class="mt-3">
                             <h6>Berdasarkan Rentang Tanggal Surat</h6>
                             <div class="row">

@@ -55,7 +55,7 @@
                                         <th>Tanggal Dikeluarkan</th>
                                         <th>Perihal</th>
                                         <th>Penerima</th>
-                                        <th>Lokasi Surat</th>
+                                        <th>Lokasi Berkas</th>
                                         <th>Yang Menandatangani</th>
                                         <th>Keterangan</th>
                                         <th>Berkas</th>
