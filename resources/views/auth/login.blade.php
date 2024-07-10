@@ -41,7 +41,7 @@
 
     <!-- Hero Start -->
     <section class="d-flex align-items-center"
-        style="background: url('assets/login.jpg') no-repeat fixed center; height: 100vh;">
+        style="background: url('assets/bg.jpg') no-repeat fixed center; height: 100vh;">
 
         <div class="container">
             <div class="row">
