@@ -103,7 +103,6 @@
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();
-                            d.status_disposisi = $('#status_disposisi').val();
                         }
                     },
                     columns: [{
@@ -162,12 +161,10 @@
 
                     let min_date = $('#min-date').val();
                     let max_date = $('#max-date').val();
-                    let status_disposisi = $('#status_disposisi').val();
 
                     let url = "{{ route('petugas.laporanSuratMasuk.pdf') }}";
 
-                    url += '?min_date=' + min_date + '&max_date=' + max_date + '&status_disposisi=' +
-                        status_disposisi;
+                    url += '?min_date=' + min_date + '&max_date=' + max_date;
 
                     window.location.href = url;
                 });

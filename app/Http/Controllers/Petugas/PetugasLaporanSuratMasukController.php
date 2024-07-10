@@ -23,10 +23,6 @@ class PetugasLaporanSuratMasukController extends Controller
             if ($request->filled('min_date') && $request->filled('max_date')) {
                 $query->whereBetween('surat_masuk.tgl_surat', [$request->min_date, $request->max_date]);
             }
-
-            if ($request->filled('status_disposisi')) {
-                $query->where('surat_masuk.status_disposisi', $request->status_disposisi);
-            }
     
             return datatables()::of($query)
                 ->addIndexColumn()
@@ -83,9 +79,6 @@ class PetugasLaporanSuratMasukController extends Controller
             $query->whereBetween('surat_masuk.tgl_surat', [$request->min_date, $request->max_date]);
         }
 
-        if ($request->filled('status_disposisi')) {
-            $query->where('surat_masuk.status_disposisi', $request->status_disposisi);
-        }
 
         $data = $query->get();
         if($data->isEmpty()){
