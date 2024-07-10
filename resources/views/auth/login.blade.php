@@ -42,7 +42,7 @@
     <!-- Hero Start -->
     <section class="d-flex align-items-center"
         style="background: url('assets/login.jpg') no-repeat fixed center; height: 100vh;">
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -51,7 +51,7 @@
                             @csrf
                             <a href="index.html"><img src="assets/logo.png"
                                     class="avatar avatar-small mb-4 d-block mx-auto" alt=""></a>
-                            <h5 class="mb-3 text-center">E-Arsip Babussalam</h5>
+                            <h5 class="mb-3 text-center">E-Arsip Babussalam !!!!</h5>
 
                             <div class="form-floating mb-2">
                                 <input type="text" name="username" class="form-control" id="floatingInput"
