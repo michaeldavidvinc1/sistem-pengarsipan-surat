@@ -30,6 +30,7 @@
                                         <th>Jenis Surat</th>
                                         <th>Asal Surat</th>
                                         <th>Keterangan</th>
+                                        <th>Lokasi Berkas</th>
                                         <th>Berkas</th>
                                         <th>Disposisi</th>
                                         <th>Aksi</th>
@@ -97,6 +98,10 @@
                         {
                             data: 'keterangan',
                             name: 'keterangan'
+                        },
+                        {
+                            data: 'lokasi_sm',
+                            name: 'lokasi_sm'
                         },
                         {
                             data: function(data) {

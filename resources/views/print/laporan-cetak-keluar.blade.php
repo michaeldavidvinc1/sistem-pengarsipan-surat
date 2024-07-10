@@ -75,7 +75,7 @@
         }
 
         .footer .signature p {
-            margin: 50px 0 0 0;
+            margin: 100px 0 0 0;
         }
 
         table {

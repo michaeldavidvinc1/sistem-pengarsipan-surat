@@ -20,7 +20,7 @@
                                 <a href="#" id="kemarin" class="btn btn-primary btn-sm">Kemarin</a>
                             </div>
                         </div>
-                        <div class="mt-3">
+                        {{-- <div class="mt-3">
                             <h6>Berdasarkan status disposisi</h6>
                             <div class="col-3">
                                 <select class="form-select form-control" id="status_disposisi"
@@ -30,7 +30,7 @@
                                     <option value="belum">Belum</option>
                                 </select>
                             </div>
-                        </div> 
+                        </div> --}}
                         <div class="mt-3">
                             <h6>Berdasarkan Rentang Tanggal Surat</h6>
                             <div class="row">
@@ -103,7 +103,6 @@
                         data: function(d) {
                             d.min_date = $('#min-date').val();
                             d.max_date = $('#max-date').val();
-                            d.status_disposisi = $('#status_disposisi').val();
                         }
                     },
                     columns: [{
@@ -165,8 +164,7 @@
 
                     let url = "{{ route('laporanSuratMasuk.pdf') }}";
 
-                    url += '?min_date=' + min_date + '&max_date=' + max_date + '&status_disposisi=' +
-                        status_disposisi;
+                    url += '?min_date=' + min_date + '&max_date=' + max_date;
 
                     window.location.href = url;
                 });
