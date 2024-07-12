@@ -38,7 +38,7 @@ class PetugasDisposisiController extends Controller
     }
 
     public function create(){
-        $surat_masuk = SuratMasuk::all();
+        $surat_masuk = SuratMasuk::where("status_disposisi", 'belum')->get();
         return view('petugas.disposisi.create', compact('surat_masuk'));
     }
 
@@ -60,6 +60,10 @@ class PetugasDisposisiController extends Controller
             'asal_surat' => $request->asal_surat,
             'penerima_disposisi' => $request->penerima_disposisi,
         ]);
+
+        $surat_masuk = SuratMasuk::findOrFail($request->surat_masuk_id);
+        $surat_masuk->status_disposisi = "sudah";
+        $surat_masuk->save();
 
         toastr()->success('Create Disposisi Surat Masuk Successfully');
         return redirect()->route('petugas.disposisi.index');

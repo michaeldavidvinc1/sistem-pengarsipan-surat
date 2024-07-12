@@ -53,7 +53,6 @@ class SuratMasukController extends Controller
             'keterangan' => ['required'],
             'lokasi_sm' => ['required'],
             'berkas_sm' => ['required','mimes:pdf'],
-            'status_disposisi' => ['required'],
         ]);
         
         // dd($validator);
@@ -75,7 +74,7 @@ class SuratMasukController extends Controller
             'keterangan' => $request->keterangan,
             'lokasi_sm' => $request->lokasi_sm,
             'berkas_sm' => $filePath,
-            'status_disposisi' => $request->status_disposisi,
+            'status_disposisi' => 'belum',
         ]);
 
         toastr()->success('Create Surat Masuk Successfully');
@@ -98,7 +97,6 @@ class SuratMasukController extends Controller
             'keterangan' => ['required'],
             'lokasi_sm' => ['required'],
             'berkas_sm' => ['mimes:pdf'],
-            'status_disposisi' => ['required'],
         ]);
 
         $data = SuratMasuk::findOrFail($id);
@@ -125,7 +123,6 @@ class SuratMasukController extends Controller
         $data->asal_surat = $request->asal_surat;
         $data->keterangan = $request->keterangan;
         $data->lokasi_sm = $request->lokasi_sm;
-        $data->status_disposisi = $request->status_disposisi;
         $data->save();
 
         toastr()->success('Update Surat Masuk Successfully');

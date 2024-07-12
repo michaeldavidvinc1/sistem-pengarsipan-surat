@@ -121,24 +121,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Status Disposisi</label>
-                                        <div class="form-icon position-relative">
-                                            <select class="form-select form-control" name="status_disposisi"
-                                                aria-label="Default select example">
-                                                <option selected>-- Status Disposisi --</option>
-                                                <option value="sudah">Sudah</option>
-                                                <option value="belum">Belum</option>
-                                            </select>
-                                            @error('status_disposisi')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
                                         <label class="form-label">Asal Surat</label>
                                         <div class="form-icon position-relative">
                                             <input type="text" name="asal_surat" id="asal_surat" class="form-control"
