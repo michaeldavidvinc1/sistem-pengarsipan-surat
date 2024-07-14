@@ -89,7 +89,8 @@
                         },
                         {
                             data: 'jenis_surat',
-                            name: 'jenis_surat'
+                            name: 'jenis_surat',
+                            searchable: false,
                         },
                         {
                             data: 'asal_surat',
