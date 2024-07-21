@@ -175,7 +175,7 @@ class SuratMasukController extends Controller
         // Set header untuk menampilkan PDF di browser
         return response($content)
             ->header('Content-Type', 'application/pdf')
-            ->header('Content-Disposition', 'inline; filename="' . basename($filePath) . '"');
+            ->header('Content-Disposition', 'inline; filename="' . $suratMasuk->berkas_sm . '.pdf"');
             
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 404);
