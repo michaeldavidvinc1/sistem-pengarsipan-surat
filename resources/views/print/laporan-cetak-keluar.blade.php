@@ -86,7 +86,7 @@
         table,
         th,
         td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
         }
 
         th,
@@ -109,42 +109,43 @@
             <p>JL. H.R. Soebrantas No. 62 Telp. (0761)6700-642, Pekanbaru 28294 Email : pesantrenbabussalampku@gmail.com
                 Website : http://www.pesantrenbabussalam.com</p>
         </div>
-        <hr />
-        <div class="form-title">
-            Rekapan Laporan Surat Keluar ({{ $min_date }} s/d {{ $max_date }})
-        </div>
-        <table>
-            <thead>
+    </div>
+
+    <hr />
+    <div class="form-title">
+        Rekapan Laporan Surat Keluar ({{ $min_date }} s/d {{ $max_date }})
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>No Surat</th>
+                <th>Tanggal Dikeluarkan Surat</th>
+                <th>Perihal</th>
+                <th>Penerima</th>
+                <th>Lokasi Berkas</th>
+                <th>Yang Menandatangani</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($data as $item)
                 <tr>
-                    <th>No Surat</th>
-                    <th>Tanggal Dikeluarkan Surat</th>
-                    <th>Perihal</th>
-                    <th>Penerima</th>
-                    <th>Lokasi Berkas</th>
-                    <th>Yang Menandatangani</th>
-                    <th>Keterangan</th>
+                    <td>{{ $item->no_sk }}</td>
+                    <td>{{ $item->tgl_dikeluarkan }}</td>
+                    <td>{{ $item->perihal }}</td>
+                    <td>{{ $item->penerima }}</td>
+                    <td>{{ $item->lokasi_sk }}</td>
+                    <td>{{ $item->yang_menandatangani }}</td>
+                    <td>{{ $item->keterangan }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $item)
-                    <tr>
-                        <td>{{ $item->no_sk }}</td>
-                        <td>{{ $item->tgl_dikeluarkan }}</td>
-                        <td>{{ $item->perihal }}</td>
-                        <td>{{ $item->penerima }}</td>
-                        <td>{{ $item->lokasi_sk }}</td>
-                        <td>{{ $item->yang_menandatangani }}</td>
-                        <td>{{ $item->keterangan }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="footer">
-            <div class="signature">
-                <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
-                <p style="margin-top: -4px">Mengetahui</p>
-                <p>Pimpinan</p>
-            </div>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="footer">
+        <div class="signature">
+            <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+            <p style="margin-top: -4px">Mengetahui</p>
+            <p>Pimpinan</p>
         </div>
     </div>
 

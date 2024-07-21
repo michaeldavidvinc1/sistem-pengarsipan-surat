@@ -86,7 +86,7 @@
         table,
         th,
         td {
-            border: 1px solid black;
+            border: 1px solid #ddd;
         }
 
         th,
@@ -109,42 +109,43 @@
             <p>JL. H.R. Soebrantas No. 62 Telp. (0761)6700-642, Pekanbaru 28294 Email : pesantrenbabussalampku@gmail.com
                 Website : http://www.pesantrenbabussalam.com</p>
         </div>
-        <hr />
-        <div class="form-title">
-            Rekapan Laporan Surat Masuk ({{ $min_date }} s/d {{ $max_date }})
-        </div>
-        <table>
-            <thead>
+    </div>
+
+    <hr />
+    <div class="form-title">
+        Rekapan Laporan Surat Masuk ({{ $min_date }} s/d {{ $max_date }})
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>No Surat</th>
+                <th>Tanggal Surat</th>
+                <th>Perihal</th>
+                <th>Jenis Surat</th>
+                <th>Asal Surat</th>
+                <th>Keterangan</th>
+                <th>Status Disposisi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($data as $item)
                 <tr>
-                    <th>No Surat</th>
-                    <th>Tanggal Surat</th>
-                    <th>Perihal</th>
-                    <th>Jenis Surat</th>
-                    <th>Asal Surat</th>
-                    <th>Keterangan</th>
-                    <th>Status Disposisi</th>
+                    <td>{{ $item->no_sm }}</td>
+                    <td>{{ $item->tgl_surat }}</td>
+                    <td>{{ $item->perihal }}</td>
+                    <td>{{ $item->jenis_surat }}</td>
+                    <td>{{ $item->asal_surat }}</td>
+                    <td>{{ $item->keterangan }}</td>
+                    <td>{{ $item->status_disposisi }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $item)
-                    <tr>
-                        <td>{{ $item->no_sm }}</td>
-                        <td>{{ $item->tgl_surat }}</td>
-                        <td>{{ $item->perihal }}</td>
-                        <td>{{ $item->jenis_surat }}</td>
-                        <td>{{ $item->asal_surat }}</td>
-                        <td>{{ $item->keterangan }}</td>
-                        <td>{{ $item->status_disposisi }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="footer">
-            <div class="signature">
-                <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
-                <p style="margin-top: -4px">Mengetahui</p>
-                <p>Pimpinan</p>
-            </div>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="footer">
+        <div class="signature">
+            <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+            <p style="margin-top: -4px">Mengetahui</p>
+            <p>Pimpinan</p>
         </div>
     </div>
 
