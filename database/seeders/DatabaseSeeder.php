@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Petugas;
+use App\Models\Setting;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,6 +52,11 @@ class DatabaseSeeder extends Seeder
             'nama_lengkap' => 'user',
             'email' => 'user@gmail.com',
             'user_id' => $user->id,
+        ]);
+
+        Setting::create([
+            'nama_sekolah' => 'babusallam',
+            'nama_pimpinan' => 'Nadya'
         ]);
     }
 }
