@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Petugas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Models\SuratMasuk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -96,10 +97,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = $request->min_date ?: $data->min('tgl_surat');
         $max_date = $request->max_date ?: $data->max('tgl_surat');
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
@@ -123,10 +127,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = Carbon::now()->startOfMonth();
         $max_date = Carbon::now()->endOfMonth();
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
@@ -150,10 +157,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = Carbon::now()->startOfWeek();
         $max_date = Carbon::now()->endOfWeek();
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
@@ -177,10 +187,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = Carbon::today();
         $max_date = Carbon::today();
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
@@ -207,10 +220,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = Carbon::now()->subMonth()->startOfMonth();
         $max_date = Carbon::now()->subMonth()->endOfMonth();
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 
@@ -236,10 +252,13 @@ class PetugasLaporanSuratMasukController extends Controller
         $min_date = Carbon::yesterday()->toDateString();
         $max_date = Carbon::yesterday()->toDateString();
 
+        $setting = Setting::first();
+
         $loadData = [
             'data' => $data,
             'min_date' => $min_date,
             'max_date' => $max_date,
+            'setting' => $setting,
         ];
         $pdf = PDF::loadView('print.laporan-cetak-masuk', $loadData)->setPaper('a4', 'landscape');
 

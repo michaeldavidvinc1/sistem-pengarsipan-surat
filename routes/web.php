@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\JenisSuratController;
 use App\Http\Controllers\Admin\LaporanSuratKeluarController;
 use App\Http\Controllers\Admin\LaporanSuratMasukController;
 use App\Http\Controllers\Admin\PetugasController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SuratKeluarController;
 use App\Http\Controllers\Admin\SuratMasukController;
 use App\Http\Controllers\AuthController;
@@ -84,6 +85,9 @@ Route::prefix('admin')->middleware('role:admin')->group(function(){
     Route::get('laporan-surat-keluar/bulan-kemarin/pdf', [LaporanSuratKeluarController::class, 'cetakBulanKemarin'])->name('bulanKemarinKeluar.pdf');
     Route::get('laporan-surat-keluar/kemarin/pdf', [LaporanSuratKeluarController::class, 'cetakKemarin'])->name('kemarinKeluar.pdf');
 
+    // Route Setting
+    Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::put('setting-update', [SettingController::class, 'update'])->name('setting.update');
 
 });
 

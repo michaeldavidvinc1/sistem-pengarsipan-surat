@@ -145,7 +145,7 @@
         <div class="signature">
             <p>Pekanbaru, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
             <p style="margin-top: -4px">Mengetahui</p>
-            <p>Pimpinan</p>
+            <p>{{ $setting->nama_pimpinan }}</p>
         </div>
     </div>
 

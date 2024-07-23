@@ -40,6 +40,9 @@
                 <li class="sidebar">
                     <a href="{{ route('petugasUser.index') }}"><i class="ti ti-users me-2"></i>Petugas</a>
                 </li>
+                <li class="sidebar">
+                    <a href="{{ route('setting.index') }}"><i class="ti ti-settings me-2"></i>Setting</a>
+                </li>
                 {{-- Sub Menu --}}
                 <li class="sidebar">
                     <a href="javascript:void(0)" style="cursor: default">Laporan Data</a>
