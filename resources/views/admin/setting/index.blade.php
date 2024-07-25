@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Nama Sekolah</label>
+                                        <label class="form-label">Nama Yayasan</label>
                                         <div class="form-icon position-relative">
                                             <input type="text" name="nama_sekolah" value="{{ $data->nama_sekolah }}" id="nama_sekolah" class="form-control"
                                                 placeholder="Nama Sekolah..." required>
